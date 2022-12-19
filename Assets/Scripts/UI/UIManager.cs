@@ -12,6 +12,7 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private GameObject tapToPlayUI;
     [SerializeField] private GameObject nextLvMenuUI;
     [SerializeField] private GameObject restartLvUI;
+    [SerializeField] private GameObject joystick;
     [Space]
 
     [Space]
@@ -39,6 +40,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (!isPaused) //if the game not stopped
         {
+            joystick.SetActive(false);
             tapToPlayUI.SetActive(false);
             nextLvMenuUI.SetActive(true);
             isPaused = true;
@@ -49,23 +51,15 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (!isPaused) //if the game not stopped
         {
+            joystick.SetActive(false);
             restartLvUI.SetActive(true);
             isPaused = true;
         }
     }
 
-    public void PauseButtonUI()
-    {
-        if (!isPaused) //if the game not stopped
-        {
-            tapToPlayUI.SetActive(true);
-            isPaused = true;
-        }
-    }
-
-
     public void TapToPlayButton()
     {
+        joystick.SetActive(true);
         tapToPlayUI.SetActive(false);
         isPaused = false;
         PlayerManager.Instance.StartMovement();
@@ -73,6 +67,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void NextLevelButton()
     {
+        joystick.SetActive(true);
         nextLvMenuUI.SetActive(false);
         isPaused = false;
         HcLevelManager.Instance.LevelUp();
@@ -82,6 +77,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void RestartLevelButton()
     {
+        joystick.SetActive(true);
         restartLvUI.SetActive(false);
         isPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
