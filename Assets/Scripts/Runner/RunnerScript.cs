@@ -11,7 +11,7 @@ public class RunnerScript : MonoBehaviour
     [SerializeField] private Transform localMoverTarget;
     [SerializeField] private SimpleAnimancer animancer;
     [SerializeField] private PlayerSwerve playerSwerve;
-    
+
     [Header("Run Settings")]
     [SerializeField] private float swipeLerpSpeed = 2f;
 
@@ -69,8 +69,10 @@ public class RunnerScript : MonoBehaviour
             //animancer.GetAnimatorTransform().forward = Vector3.Lerp(animancer.GetAnimatorTransform().forward, direction, swipeRotateLerpSpeed * Time.deltaTime);
 
             //swipe the object
-            //Vector3 nextPos = new Vector3(localMoverTarget.localPosition.x, model.localPosition.y, model.localPosition.z); ;
-            model.localPosition = Vector3.Lerp(model.localPosition, localMoverTarget.localPosition, swipeLerpSpeed * Time.deltaTime);
+            Vector3 nextPos = localMoverTarget.localPosition;
+            model.localPosition = Vector3.Lerp(model.localPosition, nextPos, swipeLerpSpeed * Time.deltaTime);
+
+            model.LookAt(localMoverTarget);
         }
     }
 
