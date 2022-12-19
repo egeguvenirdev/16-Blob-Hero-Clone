@@ -48,7 +48,7 @@ public class HcLevelManager : MonoSingleton<HcLevelManager>
         {
             Destroy(_currentLevel);
         }
-        _currentLevel = Instantiate(levelPrefabs[levelIndex]);
+        //_currentLevel = Instantiate(levelPrefabs[levelIndex]);
     }
 
     public GameObject GetCurrentLevel()
