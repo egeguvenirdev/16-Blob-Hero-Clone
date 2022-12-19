@@ -4,16 +4,22 @@ using UnityEngine;
 using MoreMountains.NiceVibrations;
 public class GameManager : MonoSingleton<GameManager>
 {
-    [Header("Ground Color Settings")]
-    [SerializeField] private Material mat;
-    [SerializeField] private Color32[] colorTypes = { };
-    [SerializeField] private Material[] skyboxes = { };
+    [Header("PlayerPrefs")]
+    [SerializeField] private bool clearPlayerPrefs;
+
+    [Header("Money Settings")]
+    [SerializeField] private int addMoney = 0;
+
 
     private int totalMoney;
 
     void Start()
     {
-
+        if (clearPlayerPrefs)
+        {
+            PlayerPrefs.DeleteAll();
+            SetTotalMoney(addMoney);
+        }
     }
 
     private void Update()
@@ -48,11 +54,5 @@ public class GameManager : MonoSingleton<GameManager>
         {
             MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
         }
-    }
-
-    private void SetGroundColor()
-    {
-        mat.SetColor("_HColor", colorTypes[Random.Range(0,5)]);
-        RenderSettings.skybox = skyboxes[Random.Range(0, 5)];
     }
 }
