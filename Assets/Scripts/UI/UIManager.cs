@@ -34,11 +34,6 @@ public class UIManager : MonoSingleton<UIManager>
         LevelText();
     }
 
-    public void TapToPlayButton()
-    {
-        tapToPlayUI.SetActive(false);
-        isPaused = false;
-    }
 
     public void NextLvUI()
     {
@@ -66,6 +61,14 @@ public class UIManager : MonoSingleton<UIManager>
             tapToPlayUI.SetActive(true);
             isPaused = true;
         }
+    }
+
+
+    public void TapToPlayButton()
+    {
+        tapToPlayUI.SetActive(false);
+        isPaused = false;
+        PlayerManager.Instance.StartMovement();
     }
 
     public void NextLevelButton()

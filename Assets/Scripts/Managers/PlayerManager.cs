@@ -11,19 +11,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private bool canRun = false;
     Sequence sequence;
 
-    // Start is called before the first frame update
     void Start()
     {
         DOTween.Init();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartMovement()
     {
-        if (canRun)
-        {
-            runnerScript.StartToRun(true);
-        }
+        runnerScript.StartToRun(true);
+        canRun = true;
     }
 
     public void StopMovement()
@@ -31,9 +27,4 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         runnerScript.StartToRun(false);
         canRun = false;
     }
-
-    /*public void SwitchPath()
-    {
-        runnerScript.SwitchPathLine();
-    }*/
 }
