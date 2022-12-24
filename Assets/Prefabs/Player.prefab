@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 7334631500952762663}
   - component: {fileID: 7334631500952762656}
   - component: {fileID: 2366972400231332101}
-  - component: {fileID: 7334631500952762662}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -114,19 +113,6 @@ MonoBehaviour:
   _fadeDuration: 0.1
   _clips: []
   _playDefault: 0
---- !u!65 &7334631500952762662
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7334631500952762658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &7334631501480717700
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,10 +178,7 @@ MonoBehaviour:
   localMoverTarget: {fileID: 7334631500424685677}
   animancer: {fileID: 0}
   playerSwerve: {fileID: 182378436109458471}
-  runSpeed: 5
-  localTargetswipeSpeed: 2
   swipeLerpSpeed: 20
-  swipeRotateLerpSpeed: 5
 --- !u!114 &182378436109458471
 MonoBehaviour:
   m_ObjectHideFlags: 0
