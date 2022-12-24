@@ -654,6 +654,19 @@ namespace Animancer
         {
             if (_Playable != null)
                 _Playable.Stop();
+            _Playable.PauseGraph();
+        }
+
+        public void Pause()
+        {
+            if (_Playable != null)
+                _Playable.PauseGraph();
+        }
+
+        public void UnPause()
+        {
+            if (_Playable != null)
+                _Playable.UnpauseGraph();
         }
 
         /************************************************************************************************************************/

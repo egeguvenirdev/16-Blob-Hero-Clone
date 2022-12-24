@@ -5,7 +5,11 @@ using Pathfinding;
 
 public class MeleeEnemy : EnemyBase
 {
-    private AIDestinationSetter aiDestination;
+    [SerializeField] private SimpleAnimancer _animancer;
+    private AIDestinationSetter _aiDestination;
+
+    private bool _canRun = false;
+    private bool _isRunning = false;
     IAstarAI ai;
 
     private void OnEnable()
@@ -23,15 +27,42 @@ public class MeleeEnemy : EnemyBase
     {
         if (ai == null) return;
 
-        if(player != null) // check the player if its dead or what
-        {
-            Vector3 targetPos = (transform.position - player).normalized * -1;
-            ai.destination = player - targetPos;
-        }
+        //Debug.Log(ai.remainingDistance);
 
-        if (ai.reachedDestination)
+        if (ai.canMove)
         {
-            Debug.Log("reached dest");
+            if (player != null) // check the player if its dead or what
+            {
+                Vector3 targetPos = (transform.position - player).normalized * -1;
+                ai.destination = player - targetPos;
+            }
+
+            if (ai.remainingDistance > 0.1f)
+            {
+                if (!_isRunning)
+                {
+                    _animancer.PlayAnimation("EnemyRun");
+                    StopAllCoroutines();
+                    _isRunning = true;
+                }
+            }
+            else
+            {
+                Debug.Log("Starting cor");
+                _animancer.PlayAnimation("EnemyHit");
+                StartCoroutine(HitRoutine());
+            }
         }
+    }
+
+    private IEnumerator HitRoutine()
+    {
+        ai.canMove = false;
+        _isRunning = false;
+        yield return new WaitForSeconds(0.3f);
+        //PlayerManager
+        yield return new WaitForSeconds(0.8f);
+        _animancer.Stop();
+        ai.canMove = true;
     }
 }
