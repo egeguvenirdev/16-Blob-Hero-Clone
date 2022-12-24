@@ -46,6 +46,7 @@ public class EnemyInstantiator : MonoBehaviour
 
             var enemy = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity);
             enemy.transform.LookAt(point);
+            enemy.transform.parent = _groundTransform;
         }
     }
 }
