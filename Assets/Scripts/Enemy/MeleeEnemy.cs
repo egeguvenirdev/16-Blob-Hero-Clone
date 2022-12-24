@@ -28,5 +28,10 @@ public class MeleeEnemy : EnemyBase
             Vector3 targetPos = (transform.position - player).normalized * -1;
             ai.destination = player - targetPos;
         }
+
+        if (ai.reachedDestination)
+        {
+            Debug.Log("reached dest");
+        }
     }
 }
