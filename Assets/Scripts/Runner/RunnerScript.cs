@@ -70,7 +70,7 @@ public class RunnerScript : MonoBehaviour
 
             //swipe the object
             Vector3 nextPos = localMoverTarget.localPosition;
-            model.localPosition = Vector3.Lerp(model.localPosition, nextPos, swipeLerpSpeed * Time.deltaTime);
+            //model.localPosition = Vector3.Lerp(model.localPosition, nextPos, swipeLerpSpeed * Time.deltaTime);
 
             model.LookAt(localMoverTarget);
         }

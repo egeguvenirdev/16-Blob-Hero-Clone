@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class EnemyBase : UnitBase
 {
-    protected virtual void MoveTowardsPlayer()
+    protected virtual void MoveTowardsPlayer(Vector3 player)
     {
         //
     }
