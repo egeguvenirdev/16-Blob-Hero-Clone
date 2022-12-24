@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class EnemyInstantiator : MonoBehaviour
 {
-    [SerializeField] private EnemyInstantiator enemyInstantiator;
-    [SerializeField] private int waveCount;
-    [SerializeField] private int waveCoolDown;
+    [SerializeField] private EnemyInstantiator _enemyInstantiator;
+
+    [Header("Wave Settings")]
+    [SerializeField] private int _waveCount;
+    [SerializeField] private int _waveEnemyCount;
+    [SerializeField] private int _waveCoolDown;
 
     [Header("Instantiate Settings")]
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private float circleRadius;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform _groundTransform;
+    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private float _circleRadius;
+    [SerializeField] private GameObject _enemyPrefab;
 
-    public void Init()
+    public void Initilalize()
     {
-
+        _playerTransform = PlayerManager.Instance.transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    [Button("CallEnemies")]
+    public void CallEnemies()
     {
-
+        CreateEnemiesAroundPoint(_waveEnemyCount, Vector3.zero, _circleRadius);
     }
 
     public void CreateEnemiesAroundPoint(int enemyCount, Vector3 point, float radius)
@@ -39,7 +44,7 @@ public class EnemyInstantiator : MonoBehaviour
             var spawnDir = new Vector3(horizontal, 0, vertical);
             var spawnPos = point + spawnDir * radius; // Radius is just the distance away from the point
 
-            var enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            var enemy = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity);
             enemy.transform.LookAt(point);
         }
     }
