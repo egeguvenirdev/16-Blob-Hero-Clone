@@ -1,27 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 public class MeleeEnemy : EnemyBase
 {
     [SerializeField] private SimpleAnimancer _animancer;
-    private AIDestinationSetter _aiDestination;
-
-    private bool _canRun = false;
-    private bool _isRunning = false;
-    IAstarAI ai;
-
-    private void OnEnable()
-    {
-        AIManager.ManagerUpdate += MoveTowardsPlayer;
-        ai = GetComponent<IAstarAI>();
-    }
-
-    private void OnDisable()
-    {
-        AIManager.ManagerUpdate -= MoveTowardsPlayer;
-    }
 
     protected override void MoveTowardsPlayer(Vector3 player)
     {
@@ -48,7 +31,6 @@ public class MeleeEnemy : EnemyBase
             }
             else
             {
-                Debug.Log("Starting cor");
                 _animancer.PlayAnimation("EnemyHit");
                 StartCoroutine(HitRoutine());
             }
@@ -60,7 +42,7 @@ public class MeleeEnemy : EnemyBase
         ai.canMove = false;
         _isRunning = false;
         yield return new WaitForSeconds(0.3f);
-        //PlayerManager
+        playerManager.TakeDamage(damage);
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
         ai.canMove = true;

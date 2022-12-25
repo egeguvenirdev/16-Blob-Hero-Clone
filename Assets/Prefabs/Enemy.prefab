@@ -1524,6 +1524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5453db4ffa795904aa65f47acf292c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   _animancer: {fileID: 7652707453054661033}
 --- !u!114 &2230038834451668639
 MonoBehaviour:
@@ -1566,8 +1567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.35
-  height: 1.66
+  radius: 35
+  height: 150
   canMove: 1
   maxSpeed: 2.5
   gravity: {x: NaN, y: NaN, z: NaN}

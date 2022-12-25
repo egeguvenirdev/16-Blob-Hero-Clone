@@ -155,6 +155,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8286306660549418885}
     - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: healthBarImage
+      value: 
+      objectReference: {fileID: 1293091990}
+    - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
       propertyPath: totalMoneyText
       value: 
       objectReference: {fileID: 20773864033571922}
@@ -276,6 +280,10 @@ PrefabInstance:
       propertyPath: offset.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 8628133915912742279, guid: dee08fe56ee80d448974ef2f5819c3f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8628133917308557230, guid: dee08fe56ee80d448974ef2f5819c3f7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -386,11 +394,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyInstantiator: {fileID: 0}
   _waveCount: 10
-  _waveEnemyCount: 10
+  _waveEnemyCount: 1
   _waveCoolDown: 10
   _groundTransform: {fileID: 294250053}
   _playerTransform: {fileID: 7334631500930808540}
-  _circleRadius: 15
+  _circleRadius: 5
   _enemyPrefab: {fileID: 7302194935876645962, guid: ffd889f082b999d43a847dd6e43bb9e3, type: 3}
 --- !u!1 &272752509
 GameObject:
@@ -761,6 +769,17 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &1293091990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1293091990, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1302583838 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}

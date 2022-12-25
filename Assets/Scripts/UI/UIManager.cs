@@ -22,7 +22,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     [Space]
     //status texts
-    [SerializeField] private Image progressBarImage;
+    [SerializeField] private Image healthBarImage;
 
     public bool isPaused;
     private int smoothMoneyNumbers = 0;
@@ -89,9 +89,9 @@ public class UIManager : MonoSingleton<UIManager>
         currentLV.text = "Level " + levelInt;
     }
 
-    public void SetProgress(float progress)
+    public void SetProgress(float health)
     {
-        progressBarImage.fillAmount = progress;
+        healthBarImage.fillAmount = health;
     }
 
     public void SetMoneyUI(int totalMoney, bool setSmoothly)
