@@ -5,24 +5,25 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
-
+using NaughtyAttributes;
 public class UIManager : MonoSingleton<UIManager>
 {
-    //Main UIs
+    [Header("Panels")]
     [SerializeField] private GameObject tapToPlayUI;
     [SerializeField] private GameObject nextLvMenuUI;
     [SerializeField] private GameObject restartLvUI;
+    [SerializeField] private GameObject cards;
     [SerializeField] private GameObject joystick;
-    [Space]
 
-    [Space]
-    //status texts UIs
+    [Header("Level & Money")]
     [SerializeField] private TMP_Text currentLV;
     [SerializeField] private TMP_Text totalMoneyText;
 
-    [Space]
-    //status texts
+    [Header("Health Bar")]
     [SerializeField] private Image healthBarImage;
+
+    [Header("Scripts")]
+    [SerializeField] private CardSelecter cardSelecter;
 
     public bool isPaused;
     private int smoothMoneyNumbers = 0;
@@ -114,6 +115,18 @@ public class UIManager : MonoSingleton<UIManager>
     private void UpdateMoneyText()
     {
         totalMoneyText.text = FormatFloatToReadableString(smoothMoneyNumbers);
+    }
+
+    [Button]
+    public void OpenUpgradeCardPanel()
+    {
+        cardSelecter.FillCardsInfos();
+        cards.SetActive(true);
+    }
+
+    public void CloseUpgradeCardPanel()
+    {
+        cards.SetActive(false);
     }
 
     public string FormatFloatToReadableString(float value)

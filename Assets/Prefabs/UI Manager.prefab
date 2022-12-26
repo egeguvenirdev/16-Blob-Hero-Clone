@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002187615835466825}
   - component: {fileID: 2002187615835466824}
+  - component: {fileID: 1906919709377537601}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -46,7 +47,20 @@ MonoBehaviour:
   tapToPlayUI: {fileID: 0}
   nextLvMenuUI: {fileID: 0}
   restartLvUI: {fileID: 0}
+  joystick: {fileID: 0}
   currentLV: {fileID: 0}
   totalMoneyText: {fileID: 0}
-  progressBarImage: {fileID: 0}
+  healthBarImage: {fileID: 0}
   isPaused: 0
+--- !u!114 &1906919709377537601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002187615835466823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181340762d0fed746bd9bf5d5c812cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

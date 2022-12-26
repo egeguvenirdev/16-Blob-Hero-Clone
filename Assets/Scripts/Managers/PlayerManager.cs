@@ -8,10 +8,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [Header("Scripts")]
     [SerializeField] private RunnerScript _runnerScript;
     [SerializeField] private GameObject _healthBar;
+    [SerializeField] private UIManager uiManager;
 
     [Header("Player Stats")]
     [SerializeField] private float _maxHealth;
+    [SerializeField] private float _levelupReqXP;
     private float _currentHealth;
+    private float _currentXP;
 
     private bool canRun = false;
     Sequence sequence;
@@ -20,6 +23,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         DOTween.Init();
         _currentHealth = _maxHealth;
+        _currentXP = _levelupReqXP;
+        uiManager = UIManager.Instance;
     }
 
     public void StartMovement()
@@ -40,13 +45,22 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         if ((_currentHealth - dealedDamage) <= 0)
         {
-            UIManager.Instance.SetProgress(0);
+            uiManager.SetProgress(0);
             Die();
         }
         else
         {
             _currentHealth -= dealedDamage;
-            UIManager.Instance.SetProgress(_currentHealth / _maxHealth);
+            uiManager.SetProgress(_currentHealth / _maxHealth);
+        }
+    }
+
+    public void GainXP()
+    {
+        if (_currentXP > _levelupReqXP)
+        {
+            uiManager.OpenUpgradeCardPanel();
+            //stop everything here
         }
     }
 
