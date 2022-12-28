@@ -19,12 +19,18 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private bool canRun = false;
     Sequence sequence;
 
-    void Start()
+    public void Init()
     {
         DOTween.Init();
-        _currentHealth = _maxHealth;
+        if(PlayerPrefs.GetFloat("Health", 0) == 0) PlayerPrefs.SetFloat("Health", _maxHealth);
+        _currentHealth = PlayerPrefs.GetFloat("Health");
         _currentXP = _levelupReqXP;
         uiManager = UIManager.Instance;
+    }
+
+    private void FixedUpdate()
+    {
+        _currentHealth += PlayerPrefs.GetFloat("HealthIncrease");
     }
 
     public void StartMovement()
@@ -53,6 +59,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             _currentHealth -= dealedDamage;
             uiManager.SetProgress(_currentHealth / _maxHealth);
         }
+    }
+
+    public void UpdateHealth()
+    {
+        uiManager.SetProgress(_currentHealth / _maxHealth);
     }
 
     public void GainXP()

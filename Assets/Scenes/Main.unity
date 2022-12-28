@@ -130,10 +130,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1098941692}
     m_Modifications:
+    - target: {fileID: 1906919709377537601, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: cards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906919709377537601, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: cards.Array.data[0]
+      value: 
+      objectReference: {fileID: 457128498}
+    - target: {fileID: 1906919709377537601, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: cards.Array.data[1]
+      value: 
+      objectReference: {fileID: 598419693}
+    - target: {fileID: 1906919709377537601, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: cards.Array.data[2]
+      value: 
+      objectReference: {fileID: 236045523}
     - target: {fileID: 2002187615835466823, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: cards
+      value: 
+      objectReference: {fileID: 1583100975}
     - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
       propertyPath: joystick
       value: 
@@ -150,6 +170,10 @@ PrefabInstance:
       propertyPath: tapToPlayUI
       value: 
       objectReference: {fileID: 8286306660658246870}
+    - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: cardSelecter
+      value: 
+      objectReference: {fileID: 1251145219}
     - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
       propertyPath: nextLvMenuUI
       value: 
@@ -400,6 +424,17 @@ MonoBehaviour:
   _playerTransform: {fileID: 7334631500930808540}
   _circleRadius: 5
   _enemyPrefab: {fileID: 7302194935876645962, guid: ffd889f082b999d43a847dd6e43bb9e3, type: 3}
+--- !u!114 &236045523 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4441229792642344307, guid: b9368faf647247645932fab29c7fe435, type: 3}
+  m_PrefabInstance: {fileID: 939163225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bf2fe662876974385ed5e3741be64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &272752509
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +610,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294250052}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &457128498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4441229792642344307, guid: b9368faf647247645932fab29c7fe435, type: 3}
+  m_PrefabInstance: {fileID: 7873404572228594987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bf2fe662876974385ed5e3741be64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &598419693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4441229792642344307, guid: b9368faf647247645932fab29c7fe435, type: 3}
+  m_PrefabInstance: {fileID: 1796865871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bf2fe662876974385ed5e3741be64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +936,17 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &1251145219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1906919709377537601, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+  m_PrefabInstance: {fileID: 11699831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181340762d0fed746bd9bf5d5c812cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1293091990 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1293091990, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
@@ -916,7 +984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1583100976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1587,6 +1655,142 @@ PrefabInstance:
       propertyPath: variableJoystick
       value: 
       objectReference: {fileID: 80505884}
+    - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: c0bf98a372006f04f9f95f6539a85c69, type: 3}
+    - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillName
+      value: Meteor
+      objectReference: {fileID: 0}
+    - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 691a43e3348b4a942bd86873d3738630, type: 3}
+    - target: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillName
+      value: Collecting Magnet
+      objectReference: {fileID: 0}
+    - target: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCastSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716859552088588862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: skills.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716859552088588862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 1420701727636066781}
+    - target: {fileID: 1716859552088588862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 1420701727636066780}
+    - target: {fileID: 1716859552088588862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 1420701727636066779}
+    - target: {fileID: 1716859552088588862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: skills.Array.data[4]
+      value: 
+      objectReference: {fileID: 1420701727636066778}
+    - target: {fileID: 1716859552088588862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: skills.Array.data[5]
+      value: 
+      objectReference: {fileID: 1420701727636066777}
+    - target: {fileID: 3160239102308089475, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 584728a63d552834cb2368411d17ad6e, type: 3}
+    - target: {fileID: 3160239102308089475, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillName
+      value: Frontal Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160239102308089475, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160239102308089475, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCastSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8d3cfc937d40146438bc45a2f28f95e5, type: 3}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillName
+      value: Turning Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _oddSkillName
+      value: Slime Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _turningSlime
+      value: 
+      objectReference: {fileID: 3049223680732265028, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: Slime Diameter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillOddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCastSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillEvenValue
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: c5445d06490fd324387655b7f62d0409, type: 3}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillName
+      value: Slime Burst
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _oddSkillName
+      value: Slime Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: SlimeCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillOddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCastSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillEvenValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1635,8 +1839,107 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillOdd
+      value: Upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 6565ca7d88d4a944ba42fca417bcd601, type: 3}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillName
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _oddSkillName
+      value: HealthMax
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillOddName
+      value: Upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: HealthRegen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillEvenName
+      value: Regeneration
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillOddValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillCastSpeed
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillEvenValue
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+--- !u!114 &1420701727636066777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8536f63208e3ab54c905b883ba483209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1420701727636066778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70199f15e06b35047ba1bb76d8e5da2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1420701727636066779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3160239102308089475, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7b43abbb268cc46b916ea2df7e7b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1420701727636066780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4461ea6a599b3ea4397440eb2d73bd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1420701727636066781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe993cb7255a1754cb2a9914dcf97659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1995854675095442152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3165,7 +3468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIewN/ZRCXAIAABwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMty4jAQ/BVK500KE8Jjb7uGkD2QUCFbufgi5DFWIUsuPXiE4t93JNvYIbUnyz09o+6Zsc+ES1MCs0ovNE+XKgXys0f8mfzotcFnONKtkmv+CQ3ng6c29yQaOG/UcoV45NOMKsBqzn7JrfDkPoJO8kzpYp5uIVbGGoQzKgxgSCvrsyVC5x451gmn+vnpn70LnhhIC/r/rLuH+0k0HE3Hg/H8rj8KOU4yQYsSUq+9TY36TTKeAlGir5rjPTAlBDe1KGJPZTAd09I4tISElFM0GeR4fg58m1t8GXSTX7PMgK0lanqacY29qqqS36pqYEHNrlK2p8LB1W5VcvktOnoI4Uyr4rm5tfJjc852b/TEqLGd/nbh2VfZTh6o2NGNgI8c5ItaaOVkikGrnU91BgazTqmrszgHtmt5ldYb0JXfZxW1E70E78dY8GLjkfthBayFCt2e+hzQOJc/KDhsiKkrIepF/DXwTrfdVaoDT1wbi6H6QunVbZTTnkrmoWfejLOx0hICXGsuQVJhTyssY28HeBPrXHsTeaL+o6kvr2PNt3CTEuCW3+/fhFbqcB2WydVhCSZ/dVZwCa1oH3jBPsVKymq/uj1p0tZOZ5R1NWwdT7/uFhlMIYpgPBkNJ2yyiR7vYDxmWZ+OHkcP2TiaZCQsH5dolIpVpbTuD45NtqIkLlrzM+ktNC3DsqeaHhb8s1CdnnOZqTXTAPK1qnBVDhovwY8ynaccO7QGa7kMAyfnhAjFdpAm10JJsDo/Wk2TtkpCSr5X1iMJicMvJCEevu7ySsOew8Ff3hS7kMs/UEsDBBQAAAgIAAAYIexnPJflbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSkWWqoWGquYWZiUWyRZKhqW6quXlymkGimamZcZq5oUWaUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIewN/ZRCXAIAABwFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIexnPJflbQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    dataString: UEsDBBQAAAgIAAAYIezUXa7XTAIAAAwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVMly2kAQ/RVqzkkKYbM4t0RgnAOGMk75osswaqEpRjOqWViLf0/PSEIyPuSEeO919+tFuhAuTQnMKj3XPF2oFMjPHvHP5FuvJV/gSLdKrvkZGs0HT23uRTRo3qjlCvHIhxlVgNWc/ZJb4cV9BJ3kmdLFLN1CrIw1CGdUGEBKK+ujJUKXHjnWAaf69+x/e1d8YiAt6P+pnGSCFiWk3m0rHjbqYSWT2Eet8J6ZEoKb2gSxpzI0GdPSOGwBBSmn2FQo7/U58G1u8c+gG7zMMgO2tqTpaco1zqbKSn6ramAFNbvK154KBzfjVcrFF3b0EOhMq+KlqRr1fQWbc7Z7oydGje3MswtPP9t28kDFjm4EfOQgX9VcKydTJK12PtQZGEw7qW6dxTmwXaurvN6Brvy6m6jdzTX0fowFLzYe+fFYAWuhwrSffAxo3MsfNBwuwtSZEPUm/hp4p9vu6dTEM9fGIlUXlN7dRjntpWQWZuabcTZWWkKAa88lSCrsaYVp7P0C77hO2TvmmfqXpC5ec83t34UEuNX3+3fUSh1uyzK5OizA5EtnBZfQmvbEK84pVlJW99WdSRO2djqjrOth63j6+bbI4AmiCMaT0eOETTbR8DuMxyzr09Fw9JCNo0lGwvFxiY1Ssaqc1vPBtcnWlMRDaz4evbmmZTj2VNPDnJ8L1Zk5l5laMw0gl1WGm3PQWARfynSWcpzQGqzlMiycXBIiFNtBmtwSJaHV2dFqmrRZElLyvbIeSUgcPhkJ8fDtllca9hwOvniT7Equ/wBQSwMEFAAACAgAABgh7Gc8l+VtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKRZaqhYaq5hZmJRbJFkqGpbqq5eXKaQaKZqZlxmrmhRZpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7NRdrtdMAgAADAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7Gc8l+VtAAAAeAAAAAkAJAAAAAAAAAAAAAAAmQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABRAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -3325,14 +3628,6 @@ PrefabInstance:
     - target: {fileID: 8472600967717925775, guid: b9368faf647247645932fab29c7fe435, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472600967717925775, guid: b9368faf647247645932fab29c7fe435, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472600967717925775, guid: b9368faf647247645932fab29c7fe435, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1000001
       objectReference: {fileID: 0}
     - target: {fileID: 8472600967717925775, guid: b9368faf647247645932fab29c7fe435, type: 3}
       propertyPath: m_LocalPosition.x

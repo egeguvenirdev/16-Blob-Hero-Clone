@@ -15,6 +15,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Start()
     {
+        PlayerManager.Instance.Init();
+
         if (clearPlayerPrefs)
         {
             PlayerPrefs.DeleteAll();
