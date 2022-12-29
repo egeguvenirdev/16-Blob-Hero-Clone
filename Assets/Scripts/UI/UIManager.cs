@@ -121,12 +121,14 @@ public class UIManager : MonoSingleton<UIManager>
     public void OpenUpgradeCardPanel()
     {
         cardSelecter.FillCardsInfos();
+        TimeManager.StopTime();
         cards.SetActive(true);
     }
 
     public void CloseUpgradeCardPanel()
     {
         cards.SetActive(false);
+        TimeManager.StartTime();
     }
 
     public string FormatFloatToReadableString(float value)

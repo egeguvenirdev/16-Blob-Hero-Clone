@@ -49,6 +49,5 @@ public abstract class SkillBase : MonoBehaviour
     public  void UpgradeLevelPref()
     {
         PlayerPrefs.SetInt(_skillName, PlayerPrefs.GetInt(_skillName, 0) + 1);
-        Debug.Log("health upgraded pref: " + PlayerPrefs.GetInt(_skillName, 0));
     }
 }

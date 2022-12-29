@@ -9,6 +9,8 @@ using System;
 [Serializable]
 public class CardData : MonoBehaviour
 {
+    public static event Action skillSelected;
+
     public TMP_Text currentLevel;
     public TMP_Text skillName;
     public TMP_Text skillStat;
@@ -16,9 +18,16 @@ public class CardData : MonoBehaviour
     public Image cardImage;
 
     [NonSerialized] public SkillBase SkillBase;
+    private bool isActive = false;
+
+    private void Awake()
+    {
+        CardData.skillSelected += OnSkillSelected;
+    }
 
     public void SetCardInfo(SkillBase skillBase)
     {
+        isActive = true;
         currentLevel.text = "" + PlayerPrefs.GetInt(skillBase.LevelKey, 0) + "LEVEL";
         cardImage.sprite = skillBase.Image;
         SkillBase = skillBase;
@@ -30,7 +39,6 @@ public class CardData : MonoBehaviour
         float skillValue = isLevelOdd ? skillBase.SkillValues[0] : skillBase.SkillValues[1];
 
         skillName.text = skillname;
-        Debug.Log(skillname + " " + PlayerPrefs.GetFloat(skillname, 0));
         skillStat.text = SkillStatCalculator(skillname, skillValue);
     }
 
@@ -41,10 +49,15 @@ public class CardData : MonoBehaviour
 
     public void ButtonOnclick()
     {
-        transform.DOPunchScale(Vector3.one * 0.3f, 0.5f, 6).OnComplete( () => {
+        if (!isActive) return;
+        skillSelected?.Invoke();
+        transform.DOKill(true);
+        transform.DOPunchScale(Vector3.one * 0.3f, 0.5f, 6).SetUpdate(true).OnComplete( () => {
             SkillBase.UpgradeButton();
             UIManager.Instance.CloseUpgradeCardPanel();
         });
         
     }
+
+    private void OnSkillSelected() => isActive = false;
 }

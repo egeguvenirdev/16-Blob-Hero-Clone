@@ -31,6 +31,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void FixedUpdate()
     {
         _currentHealth += _healthRegen;
+        UpdateHealth();
     }
 
     public void StartMovement()
@@ -63,6 +64,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void UpdateHealth()
     {
+        Debug.Log("Current health: " + _currentHealth + "max health: " + _maxHealth);
         uiManager.SetProgress(_currentHealth / _maxHealth);
     }
 
@@ -77,7 +79,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void SetHealthStats(float maxHealth, float healthRegen)
     {
-        _maxHealth = maxHealth;
+        _maxHealth += maxHealth;
         _healthRegen = healthRegen;
         UpdateHealth();
     }
