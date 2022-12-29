@@ -12,6 +12,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     [Header("Player Stats")]
     [SerializeField] private float _maxHealth;
+    [SerializeField] private float _healthRegen;
     [SerializeField] private float _levelupReqXP;
     private float _currentHealth;
     private float _currentXP;
@@ -22,15 +23,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void Init()
     {
         DOTween.Init();
-        if(PlayerPrefs.GetFloat("Health", 0) == 0) PlayerPrefs.SetFloat("Health", _maxHealth);
-        _currentHealth = PlayerPrefs.GetFloat("Health");
+        _currentHealth = _maxHealth;
         _currentXP = _levelupReqXP;
         uiManager = UIManager.Instance;
     }
 
     private void FixedUpdate()
     {
-        _currentHealth += PlayerPrefs.GetFloat("HealthIncrease");
+        _currentHealth += _healthRegen;
     }
 
     public void StartMovement()
@@ -73,6 +73,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             uiManager.OpenUpgradeCardPanel();
             //stop everything here
         }
+    }
+
+    public void SetHealthStats(float maxHealth, float healthRegen)
+    {
+        _maxHealth = maxHealth;
+        _healthRegen = healthRegen;
+        UpdateHealth();
     }
 
     private void Die()

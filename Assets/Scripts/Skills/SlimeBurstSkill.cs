@@ -9,18 +9,14 @@ public class SlimeBurstSkill : SkillBase
 
     public override void Initialize()
     {
-        if (PlayerPrefs.GetInt("Health", 0) == 0)
-        {
-            //PlayerPrefs.SetInt("Health", _health);
-        }
     }
 
-    public override void OddLevelUpgrade()
+    protected override void OddLevelUpgrade()
     {
 
     }
 
-    public override void EvenLevelUpgrade()
+    protected override void EvenLevelUpgrade()
     {
 
     }

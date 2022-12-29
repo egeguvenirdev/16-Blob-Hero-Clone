@@ -15,13 +15,13 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Start()
     {
-        PlayerManager.Instance.Init();
-
         if (clearPlayerPrefs)
         {
             PlayerPrefs.DeleteAll();
             SetTotalMoney(addMoney);
         }
+
+        PlayerManager.Instance.Init();
     }
 
     private void Update()

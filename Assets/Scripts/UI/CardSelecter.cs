@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using TMPro;
+using UnityEngine.UI;
 
 public class CardSelecter : MonoBehaviour
 {
-    [SerializeField] private Card[] cards;
+    [SerializeField] private List<CardData> cards;
     private SkillManager skillManager;
 
     private void Start()

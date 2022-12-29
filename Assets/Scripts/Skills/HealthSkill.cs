@@ -6,21 +6,23 @@ public class HealthSkill : SkillBase
 {
     public override void Initialize()
     {
-
+        UpgradePlayer();
     }
 
-    public override void OddLevelUpgrade()
+    protected override void OddLevelUpgrade()
     {
-        PlayerPrefs.SetFloat("HealthIncrease", PlayerPrefs.GetFloat("HealthIncrease", 0) + _skillOddValue);
-        PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") + PlayerPrefs.GetFloat("HealthIncrease"));
-        PlayerManager.Instance.UpdateHealth();
-        UpgradeLevelPref(_oddSkillName);
+        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 0) + _skillOddValue);
+        UpgradePlayer();
     }
 
-    public override void EvenLevelUpgrade()
+    protected override void EvenLevelUpgrade()
     {
-        PlayerPrefs.SetFloat("HealthRegen", PlayerPrefs.GetFloat("HealthRegen", 0) + _skillEvenValue);
-        PlayerManager.Instance.UpdateHealth();
-        UpgradeLevelPref(_evenSkillName);
+        PlayerPrefs.SetFloat(_evenSkillName, PlayerPrefs.GetFloat(_evenSkillName, 0) + _skillEvenValue);
+        UpgradePlayer();
+    }
+
+    private void UpgradePlayer()
+    {
+        PlayerManager.Instance.SetHealthStats(PlayerPrefs.GetFloat(_oddSkillName, 0), PlayerPrefs.GetFloat(_evenSkillName, 0));
     }
 }

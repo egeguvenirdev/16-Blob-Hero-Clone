@@ -47,10 +47,12 @@ MonoBehaviour:
   tapToPlayUI: {fileID: 0}
   nextLvMenuUI: {fileID: 0}
   restartLvUI: {fileID: 0}
+  cards: {fileID: 0}
   joystick: {fileID: 0}
   currentLV: {fileID: 0}
   totalMoneyText: {fileID: 0}
   healthBarImage: {fileID: 0}
+  cardSelecter: {fileID: 0}
   isPaused: 0
 --- !u!114 &1906919709377537601
 MonoBehaviour:
@@ -64,3 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181340762d0fed746bd9bf5d5c812cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards: []
