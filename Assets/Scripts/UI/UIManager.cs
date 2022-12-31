@@ -39,7 +39,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void NextLvUI()
     {
-        if (!isPaused) //if the game not stopped
+        if (!isPaused)
         {
             joystick.SetActive(false);
             tapToPlayUI.SetActive(false);
@@ -50,7 +50,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void RestartButtonUI()
     {
-        if (!isPaused) //if the game not stopped
+        if (!isPaused)
         {
             joystick.SetActive(false);
             restartLvUI.SetActive(true);
@@ -60,7 +60,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void TapToPlayButton()
     {
-        joystick.SetActive(true);
+        OpenUpgradeCardPanel();
         tapToPlayUI.SetActive(false);
         isPaused = false;
         PlayerManager.Instance.StartMovement();
@@ -120,6 +120,7 @@ public class UIManager : MonoSingleton<UIManager>
     [Button]
     public void OpenUpgradeCardPanel()
     {
+        joystick.SetActive(false);
         cardSelecter.FillCardsInfos();
         TimeManager.StopTime();
         cards.SetActive(true);
@@ -127,6 +128,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void CloseUpgradeCardPanel()
     {
+        joystick.SetActive(true);
         cards.SetActive(false);
         TimeManager.StartTime();
     }
