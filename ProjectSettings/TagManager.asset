@@ -11,6 +11,9 @@ TagManager:
   - HitParticle
   - Explosion
   - Blob
+  - Gem
+  - Enemy
+  - CollectParticle
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
+  - Gem
   - 
   - 
   - 
