@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
 
-public class TurningSlime : SkillBase
+public class TurningSlimeSkill : SkillBase
 {
     [Header("Turning Slime Skill Uthilities")]
     [SerializeField] private GameObject _turningSlimeParent;
@@ -25,7 +25,6 @@ public class TurningSlime : SkillBase
     [Button]
     private void StartRotate()
     {
-        Debug.Log("started to turning");
         _turningSlimeParent.transform.DOLocalRotate(Vector3.up * 360, _slimeSpeed / PlayerPrefs.GetFloat(_oddSkillName, 0.5f), RotateMode.FastBeyond360)
             .SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
     }

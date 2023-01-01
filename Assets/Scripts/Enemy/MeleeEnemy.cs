@@ -22,11 +22,11 @@ public class MeleeEnemy : EnemyBase
 
             if (ai.remainingDistance > 0.1f)
             {
-                if (!_isRunning)
+                if (!isRunning)
                 {
                     _animancer.PlayAnimation("EnemyRun");
                     StopAllCoroutines();
-                    _isRunning = true;
+                    isRunning = true;
                 }
             }
             else
@@ -40,7 +40,7 @@ public class MeleeEnemy : EnemyBase
     private IEnumerator HitRoutine()
     {
         ai.canMove = false;
-        _isRunning = false;
+        isRunning = false;
         yield return new WaitForSeconds(0.3f);
         playerManager.TakeDamage(damage);
         yield return new WaitForSeconds(0.8f);

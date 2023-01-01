@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - Meteor
   - HitParticle
+  - Explosion
+  - Blob
   layers:
   - Default
   - TransparentFX

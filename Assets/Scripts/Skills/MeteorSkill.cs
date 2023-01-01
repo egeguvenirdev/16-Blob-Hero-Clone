@@ -35,13 +35,13 @@ public class MeteorSkill : SkillBase
         {
             for (int i = 0; i < PlayerPrefs.GetFloat(_oddSkillName, 0); i++)
             {
-                GameObject instantiatedMeteor = ObjectPooler.Instance.GetPooledObject("Meteor");
+                GameObject instantiatedMeteor = ObjectPooler.Instance.GetPooledObject("Meteor");     
                 instantiatedMeteor.transform.position = GetRandomPoint();
                 instantiatedMeteor.transform.rotation = Quaternion.Euler(0, 0, -90);
-                instantiatedMeteor.transform.parent = ground.transform;
+                instantiatedMeteor.GetComponent<InstantiatedMeteor>().RainToEnemies();
                 instantiatedMeteor.SetActive(true);             
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(5f / PlayerPrefs.GetFloat(_evenSkillName, 1));
         }
     }
 
@@ -50,5 +50,6 @@ public class MeteorSkill : SkillBase
         Vector3 randomPoint = Vector3.up * 10 + (Random.insideUnitSphere * diameter);
         randomPoint.y = height;
         return randomPoint;
+        Debug.Log(randomPoint);
     }
 }

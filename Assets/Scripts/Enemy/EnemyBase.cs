@@ -6,10 +6,10 @@ using Pathfinding;
 public abstract class EnemyBase : UnitBase
 {
     [SerializeField] protected float damage;
-    protected AIDestinationSetter _aiDestination;
+    protected AIDestinationSetter aiDestination;
     protected PlayerManager playerManager;
-    protected bool _canRun = false;
-    protected bool _isRunning = false;
+    protected bool canRun = false;
+    protected bool isRunning = false;
     protected IAstarAI ai;
 
     protected void Initialized()
