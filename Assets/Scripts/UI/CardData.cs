@@ -49,6 +49,7 @@ public class CardData : MonoBehaviour
 
     public void ButtonOnclick()
     {
+        PlayerPrefs.SetInt("FirstUpgrade", 1); // first selection has been decided
         if (!isActive) return;
         skillSelected?.Invoke();
         transform.DOKill(true);

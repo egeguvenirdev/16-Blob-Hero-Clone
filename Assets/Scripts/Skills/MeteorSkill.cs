@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeteorSkill : SkillBase
 {
+    [Header("Meteor Slime Skill Uthilities")]
     [SerializeField] private int diameter = 10;
     [SerializeField] private int height = 10;
     [SerializeField] private bool isActive = true;
@@ -39,6 +40,7 @@ public class MeteorSkill : SkillBase
                 instantiatedMeteor.transform.position = GetRandomPoint();
                 instantiatedMeteor.transform.rotation = Quaternion.Euler(0, 0, -90);
                 instantiatedMeteor.GetComponent<InstantiatedMeteor>().RainToEnemies();
+                //instantiatedMeteor.transform.SetParent(ground.transform);
                 instantiatedMeteor.SetActive(true);             
             }
             yield return new WaitForSeconds(5f / PlayerPrefs.GetFloat(_evenSkillName, 1));
@@ -50,6 +52,5 @@ public class MeteorSkill : SkillBase
         Vector3 randomPoint = Vector3.up * 10 + (Random.insideUnitSphere * diameter);
         randomPoint.y = height;
         return randomPoint;
-        Debug.Log(randomPoint);
     }
 }

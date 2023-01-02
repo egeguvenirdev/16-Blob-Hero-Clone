@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArrowSkill : SkillBase
 {
+    //[Header("Arrow Slime Skill Uthilities")]
     public override void Initialize()
     {
     }

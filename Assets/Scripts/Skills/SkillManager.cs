@@ -6,6 +6,7 @@ using static CardSelecter;
 public class SkillManager : MonoSingleton<SkillManager>
 {
     [SerializeField] private SkillBase[] skills;
+    private bool isFirstSelection = true;
 
     public void Init()
     {
@@ -17,7 +18,10 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     public void SelectRandomCards(List<CardData> cards)
     {
-        skills.Shuffle(); //shuffle the list for unique card selection
+        if (PlayerPrefs.GetInt("FirstUpgrade", 0) != 0) // is it first selection
+        {
+            skills.Shuffle(); //shuffle the list for unique card selection
+        }
 
         for (int i = 0; i < cards.Count; i++) // for every card
         {

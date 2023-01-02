@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8253853717484965469}
-  - component: {fileID: 4531411624834660746}
+  - component: {fileID: 7042953723425226662}
   m_Layer: 8
   m_Name: Gem
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4531411624834660746
+--- !u!65 &7042953723425226662
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.5, z: 0.3}
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8748347306877334622
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,8 +71,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8748347306877334622}
-  m_LocalRotation: {x: -0.46337777, y: -0, z: -0, w: 0.88616085}
-  m_LocalPosition: {x: 0, y: 0.14199999, z: 0}
+  m_LocalRotation: {x: -0.46338105, y: 0, z: 0, w: 0.8861592}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8253853717484965469}
@@ -142,10 +142,10 @@ MonoBehaviour:
   isAnimated: 1
   isRotating: 1
   isFloating: 1
-  isScaling: 1
-  rotationAngle: {x: 0, y: 0, z: 10}
+  isScaling: 0
+  rotationAngle: {x: 0, y: 0, z: 5}
   rotationSpeed: 10
-  floatSpeed: 0.04
+  floatSpeed: 0.001
   floatRate: 0.5
   startScale: {x: 1, y: 1, z: 1}
   endScale: {x: 1.5, y: 1.5, z: 1.5}

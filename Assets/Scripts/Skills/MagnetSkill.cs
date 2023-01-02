@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MagnetSkill : SkillBase
 {
+    [Header("Magnet Skill Uthilities")]
     [SerializeField] private ParticleSystem collectingParticle;
     [SerializeField] private bool isActive = true;
     [SerializeField] private LayerMask layer;
@@ -19,23 +20,27 @@ public class MagnetSkill : SkillBase
     protected override void OddLevelUpgrade()
     {
         PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 0) + _skillOddValue);
+        StartCoroutine(PullTheDiamonds());
     }
 
     protected override void EvenLevelUpgrade()
     {
         PlayerPrefs.SetFloat(_evenSkillName, PlayerPrefs.GetFloat(_evenSkillName, 0) + _skillEvenValue);
+
+        float particleSpeed = 0.2f * PlayerPrefs.GetFloat(_evenSkillName, 1); // set particle emission speed
+        var collectingEmission = collectingParticle.emission;
+        collectingEmission.rateOverTime = particleSpeed;
     }
 
     private IEnumerator PullTheDiamonds()
     {
+        collectingParticle.gameObject.SetActive(true);
+        float particleScale = 1 + 0.2f * PlayerPrefs.GetFloat(_evenSkillName, 1);
+        collectingParticle.transform.localScale = new Vector3(particleScale, particleScale, particleScale);
         while (isActive)
         {
-            GameObject instantiatedMeteor = ObjectPooler.Instance.GetPooledObject("CollectParticle");
-            instantiatedMeteor.transform.position = transform.position;
-            instantiatedMeteor.transform.rotation = Quaternion.Euler(0, 0, 0);
             MagnetCalculation();
-            instantiatedMeteor.SetActive(true);
-            yield return new WaitForSeconds(5f / PlayerPrefs.GetFloat(_evenSkillName, 1));
+            yield return new WaitForSeconds(5 / PlayerPrefs.GetFloat(_evenSkillName, 1));
         }
     }
 
@@ -45,6 +50,7 @@ public class MagnetSkill : SkillBase
 
         foreach (Collider boxes in collider)
         {
+            Debug.Log("gems: " + boxes);
             Rigidbody rb = boxes.GetComponentInChildren<Rigidbody>(); // collect the diamonds
         }
     }

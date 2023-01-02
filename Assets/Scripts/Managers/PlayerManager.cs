@@ -20,9 +20,20 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private bool canRun = false;
     Sequence sequence;
 
+    public float setHealth
+    {
+        get => _currentHealth;
+        set
+        {
+            value = Mathf.Clamp(value, 0, float.MaxValue);
+            _currentHealth -= value;
+
+            if (_currentHealth <= 0) Die();
+        }
+    }
+
     public void Init()
     {
-        DOTween.Init();
         _currentHealth = _maxHealth;
         _currentXP = _levelupReqXP;
         uiManager = UIManager.Instance;
@@ -30,7 +41,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     private void FixedUpdate()
     {
-        _currentHealth += _healthRegen;
+        _currentHealth += _healthRegen / 10;
         UpdateHealth();
     }
 
@@ -48,26 +59,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         canRun = false;
     }
 
-    public void TakeDamage(float dealedDamage)
-    {
-        if ((_currentHealth - dealedDamage) <= 0)
-        {
-            uiManager.SetProgress(0);
-            Die();
-        }
-        else
-        {
-            _currentHealth -= dealedDamage;
-            uiManager.SetProgress(_currentHealth / _maxHealth);
-        }
-    }
-
-    public void UpdateHealth()
-    {
-        Debug.Log("Current health: " + _currentHealth + "max health: " + _maxHealth);
-        uiManager.SetProgress(_currentHealth / _maxHealth);
-    }
-
     public void GainXP()
     {
         if (_currentXP > _levelupReqXP)
@@ -77,15 +68,22 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
     }
 
-    public void SetHealthStats(float maxHealth, float healthRegen)
+    public void SetHealthStats(float maxHealth, float healthRegen, float increaseAmount)
     {
         _maxHealth += maxHealth;
         _healthRegen = healthRegen;
+        _currentHealth += increaseAmount;
         UpdateHealth();
+    }
+
+    public void UpdateHealth()
+    {
+        Debug.Log("Current health: " + _currentHealth + "max health: " + _maxHealth);
+        uiManager.SetProgress(_currentHealth / _maxHealth);
     }
 
     private void Die()
     {
-
+        Debug.Log("died");
     }
 }

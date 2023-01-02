@@ -13,6 +13,7 @@ public class TurningSlimeSkill : SkillBase
     [SerializeField] private float _slimeHeight;
     [SerializeField] private float _slimeSpeed;
     [SerializeField] private float _rangeUpgradeValue;
+    [SerializeField] private float damage = 5f;
 
     public override void Initialize()
     {
@@ -48,5 +49,14 @@ public class TurningSlimeSkill : SkillBase
         _turningSlime1.transform.localPosition = new Vector3(0, _slimeHeight, PlayerPrefs.GetFloat(_evenSkillName, 0) + _skillEvenValue);
         _turningSlime2.transform.localPosition = new Vector3(0, _slimeHeight, -(PlayerPrefs.GetFloat(_evenSkillName, 0) + _skillEvenValue));
         StartRotate();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("hit " + damage);
+            other.GetComponent<EnemyBase>().TakeDamage(damage);
+        }
     }
 }

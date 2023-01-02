@@ -22,6 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         PlayerManager.Instance.Init();
+        SkillManager.Instance.Init();
     }
 
     private void Update()

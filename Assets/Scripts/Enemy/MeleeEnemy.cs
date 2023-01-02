@@ -42,7 +42,7 @@ public class MeleeEnemy : EnemyBase
         ai.canMove = false;
         isRunning = false;
         yield return new WaitForSeconds(0.3f);
-        playerManager.TakeDamage(damage);
+        playerManager.setHealth = 5;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
         ai.canMove = true;
