@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MagnetSkill : SkillBase
 {
@@ -8,6 +9,7 @@ public class MagnetSkill : SkillBase
     [SerializeField] private ParticleSystem collectingParticle;
     [SerializeField] private bool isActive = true;
     [SerializeField] private LayerMask layer;
+    [SerializeField] private Transform objectPooler;
 
     public override void Initialize()
     {
@@ -48,10 +50,13 @@ public class MagnetSkill : SkillBase
     {
         Collider[] collider = Physics.OverlapSphere(transform.position, _skillOddValue * 2, layer);
 
-        foreach (Collider boxes in collider)
+        foreach (Collider gems in collider)
         {
-            Debug.Log("gems: " + boxes);
-            Rigidbody rb = boxes.GetComponentInChildren<Rigidbody>(); // collect the diamonds
+            gems.transform.DOJump(Vector3.zero, 3, 1, 0.4f).OnComplete( () => 
+            {
+                gems.transform.SetParent(objectPooler);
+                gems.gameObject.SetActive(false);
+            });
         }
     }
 }

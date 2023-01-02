@@ -23,14 +23,6 @@ public class InstantiatedMeteor : MonoBehaviour
         transform.DOLocalMoveY(targetPointValue, speed).OnComplete( ()=> { Explode(); } );
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            other.GetComponent<EnemyBase>().TakeDamage(damage);
-        }
-    }
-
     private void Explode()
     {
         PlayParticle("Explosion");
@@ -53,5 +45,14 @@ public class InstantiatedMeteor : MonoBehaviour
     private void SetActiveParticle(Transform particleRef)
     {
         particleRef.SetParent(poolObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Meteor hit the enemy. Damage : " + damage);
+            other.GetComponent<EnemyBase>().TakeDamage(damage);
+        }
     }
 }

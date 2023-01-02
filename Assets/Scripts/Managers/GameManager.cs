@@ -10,8 +10,8 @@ public class GameManager : MonoSingleton<GameManager>
     [Header("Money Settings")]
     [SerializeField] private int addMoney = 0;
 
-
     private int totalMoney;
+    private EnemyInstantiator enemyInstantiator;
 
     void Start()
     {
@@ -20,9 +20,11 @@ public class GameManager : MonoSingleton<GameManager>
             PlayerPrefs.DeleteAll();
             SetTotalMoney(addMoney);
         }
+        enemyInstantiator = FindObjectOfType<EnemyInstantiator>();
 
         PlayerManager.Instance.Init();
         SkillManager.Instance.Init();
+        enemyInstantiator.Init();
     }
 
     private void Update()

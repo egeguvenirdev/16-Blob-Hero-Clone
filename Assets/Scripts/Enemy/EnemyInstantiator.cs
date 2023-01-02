@@ -5,28 +5,59 @@ using NaughtyAttributes;
 
 public class EnemyInstantiator : MonoBehaviour
 {
-    [SerializeField] private EnemyInstantiator _enemyInstantiator;
-
     [Header("Wave Settings")]
-    [SerializeField] private int _waveCount;
-    [SerializeField] private int _waveEnemyCount;
-    [SerializeField] private int _waveCoolDown;
+    [SerializeField] private int waveCount;
+    [SerializeField] private int waveEnemyCount;
+    [SerializeField] private int waveCoolDown;
+    [SerializeField] private bool canInstantiate = true;
 
     [Header("Instantiate Settings")]
-    [SerializeField] private Transform _groundTransform;
+    [SerializeField] private Transform groundTransform;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _circleRadius;
     [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private ObjectPooler objectPooler;
+    [SerializeField] private HcLevelManager levelManager;
 
-    public void Initilalize()
+    [SerializeField] private float _waveEnemyCount
     {
-        _playerTransform = PlayerManager.Instance.transform;
+        get => waveEnemyCount;
+        set
+        {
+            value = Mathf.Clamp(value, 10, 20);
+            waveEnemyCount = (int)value;
+        }
     }
 
-    [Button("CallEnemies")]
-    public void CallEnemies()
+    [SerializeField]private float _waveCoolDown
     {
-        CreateEnemiesAroundPoint(_waveEnemyCount, Vector3.zero, _circleRadius);
+        get => waveCoolDown;
+        set
+        {
+            value = Mathf.Clamp(value, 5, 10);
+            waveCoolDown = (int)value;
+        }
+    }
+
+    public void Init()
+    {
+        int level = HcLevelManager.Instance.GetGlobalLevelIndex();
+        _playerTransform = PlayerManager.Instance.transform;
+        objectPooler = ObjectPooler.Instance;
+        groundTransform = GameObject.FindGameObjectWithTag("Ground").transform;
+        _waveEnemyCount += level;
+        _waveCoolDown -= level;
+        StartCoroutine(CallEnemies());
+    }
+
+    public IEnumerator CallEnemies()
+    {
+        Debug.Log("Instantiate has been started. Enemy Count: " + waveEnemyCount + " Wave Cooldown: " + waveCoolDown);
+        while (canInstantiate)
+        {
+            CreateEnemiesAroundPoint(waveEnemyCount, Vector3.zero, _circleRadius);
+            yield return new WaitForSeconds(waveCoolDown);
+        }
     }
 
     public void CreateEnemiesAroundPoint(int enemyCount, Vector3 point, float radius)
@@ -44,9 +75,11 @@ public class EnemyInstantiator : MonoBehaviour
             var spawnDir = new Vector3(horizontal, 0, vertical);
             var spawnPos = point + spawnDir * radius; // Radius is just the distance away from the point
 
-            var enemy = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity);
+            var enemy = objectPooler.GetPooledObject("Enemy");
+            enemy.transform.position = spawnPos;
+            enemy.SetActive(true);
             enemy.transform.LookAt(point);
-            enemy.transform.parent = _groundTransform;
+            enemy.transform.parent = groundTransform;
         }
     }
 }

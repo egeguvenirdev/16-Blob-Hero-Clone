@@ -8,6 +8,7 @@ public class SlimeBurstSkill : SkillBase
     [SerializeField] private GameObject burstSlime;
     [SerializeField] private float speed = 5;
     [SerializeField] private bool isActive = true;
+    [SerializeField] private float damage = 5;
 
     public override void Initialize()
     {
@@ -44,6 +45,15 @@ public class SlimeBurstSkill : SkillBase
                 instantiatedMeteor.GetComponent<InstantiatedBurstSlime>().ReleaseTheSlimes();
             }
             yield return new WaitForSeconds(5f / PlayerPrefs.GetFloat(_evenSkillName, 1));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("hit " + damage);
+            other.GetComponent<EnemyBase>().TakeDamage(damage);
         }
     }
 }

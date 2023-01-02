@@ -9626,7 +9626,7 @@ GameObject:
   - component: {fileID: 1601754147451419566}
   m_Layer: 0
   m_Name: Hit Blood
-  m_TagString: Blob
+  m_TagString: HitParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

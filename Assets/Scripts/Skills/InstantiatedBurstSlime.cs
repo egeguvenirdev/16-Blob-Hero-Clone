@@ -8,6 +8,7 @@ public class InstantiatedBurstSlime : MonoBehaviour
     [SerializeField] private float speed = 300f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform ground;
+    [SerializeField] private float damage = 5f;
     private Transform poolObject;
 
     void Start()
@@ -28,5 +29,14 @@ public class InstantiatedBurstSlime : MonoBehaviour
     {
         transform.SetParent(poolObject);
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Burst slime hit the enemy. Damage : " + damage);
+            other.GetComponent<EnemyBase>().TakeDamage(damage);
+        }
     }
 }
