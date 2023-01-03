@@ -13,9 +13,9 @@ public class JoystickPlayerMover : MonoBehaviour
 
     public void Update()
     {
-        Vector3 direction = (Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal) * - speed;
+        Vector3 direction = (Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal) * speed;
         //localMover.position += new Vector3(direction.x, localMover.position.y, direction.z);
         localMover.LookAt(new Vector3(direction.x, localMover.position.y, direction.z)*-1);
-        ground.position += new Vector3(direction.x, localMover.position.y, direction.z) * Time.deltaTime;
+        localMover.position += new Vector3(direction.x, localMover.position.y, direction.z) * Time.deltaTime;
     }
 }
