@@ -67,8 +67,6 @@ public class RunnerScript : MonoBehaviour
         {
             //Vector3 direction = localMoverTarget.localPosition - oldPosition;
             //animancer.GetAnimatorTransform().forward = Vector3.Lerp(animancer.GetAnimatorTransform().forward, direction, swipeRotateLerpSpeed * Time.deltaTime);
-
-            Debug.Log("running");
             //swipe the object
             Vector3 nextPos = localMoverTarget.localPosition;
             model.localPosition = Vector3.Lerp(model.localPosition, nextPos, swipeLerpSpeed * Time.deltaTime);

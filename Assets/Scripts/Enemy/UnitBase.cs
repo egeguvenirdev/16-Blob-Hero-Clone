@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitBase : MonoBehaviour
 {
-    private float _health = 10;
+    private float health = 10;
     private Transform ground;
 
     private void Start()
@@ -12,22 +12,21 @@ public class UnitBase : MonoBehaviour
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
     }
 
-    public float health
+    public float currentHealth
     {
-        get => _health;
+        get => health;
         set
         {
             value = Mathf.Clamp(value, 0, float.MaxValue);
-            _health = value;
+            currentHealth -= value;
 
-            if (_health <= 0) Die();
+            if (health <= 0) Die();
         }
     }
 
     private void Die()
     {
         PlayParticle();
-        gameObject.SetActive(false);
         DropExpDiamond();
         ResTheEnemy();
         gameObject.SetActive(false);
@@ -54,6 +53,6 @@ public class UnitBase : MonoBehaviour
 
     private void ResTheEnemy()
     {
-        health = _health;
+        currentHealth = health;
     }
 }

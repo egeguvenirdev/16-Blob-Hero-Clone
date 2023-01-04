@@ -143,8 +143,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1081029035}
-  m_Father: {fileID: 7334631501480717707}
-  m_RootOrder: 2
+  m_Father: {fileID: 7334631500952762661}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -364,7 +364,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683746401823477944}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -374,8 +374,8 @@ Transform:
   - {fileID: 313733011530582581}
   - {fileID: 2901472694906045158}
   - {fileID: 7980468503040931279}
-  m_Father: {fileID: 7334631501480717707}
-  m_RootOrder: 3
+  m_Father: {fileID: 7334631500952762661}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1873915024658531102
 GameObject:
@@ -432,6 +432,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+  objectPooler: {fileID: 0}
 --- !u!1 &2347266689969265420
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +485,7 @@ MonoBehaviour:
   burstSlime: {fileID: 3448980169376316324, guid: 4c00d0b99befde64e9f3fa9e8e61f6c1, type: 3}
   speed: 300
   isActive: 1
+  damage: 5
 --- !u!1 &3560054089106296547
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +734,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1442639092150874533}
+  - {fileID: 1521703239}
+  - {fileID: 5249558904627604671}
   m_Father: {fileID: 7334631501480717707}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -834,8 +838,6 @@ Transform:
   m_Children:
   - {fileID: 5886141258649703862}
   - {fileID: 7334631500952762661}
-  - {fileID: 1521703239}
-  - {fileID: 5249558904627604671}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -870,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 7334631500952762661}
-  localMoverTarget: {fileID: 7334631500424685677}
+  localMoverTarget: {fileID: 5886141258649703862}
   animancer: {fileID: 2366972400231332101}
   playerSwerve: {fileID: 182378436109458471}
   swipeLerpSpeed: 5
@@ -1268,6 +1270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3830973470820231322}
     m_Modifications:
+    - target: {fileID: 3049223680732236188, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3049223680732265028, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
       propertyPath: m_Name
       value: Turning slime
@@ -1339,6 +1345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3830973470820231322}
     m_Modifications:
+    - target: {fileID: 3049223680732236188, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3049223680732265028, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
       propertyPath: m_Name
       value: Turning slime (1)
@@ -1386,6 +1396,10 @@ PrefabInstance:
     - target: {fileID: 3049223680732589916, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049223680752013510, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3938263636760879518, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
       propertyPath: m_Mesh
@@ -1465,6 +1479,18 @@ PrefabInstance:
     - target: {fileID: 138777747149457648, guid: d7f51d85f9203b745a8e87afef7a34a3, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 138777747149536034, guid: d7f51d85f9203b745a8e87afef7a34a3, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 138777747149536034, guid: d7f51d85f9203b745a8e87afef7a34a3, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 138777747149536034, guid: d7f51d85f9203b745a8e87afef7a34a3, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7f51d85f9203b745a8e87afef7a34a3, type: 3}

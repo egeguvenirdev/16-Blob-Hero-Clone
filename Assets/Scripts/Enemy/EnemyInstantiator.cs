@@ -12,7 +12,6 @@ public class EnemyInstantiator : MonoBehaviour
     [SerializeField] private bool canInstantiate = true;
 
     [Header("Instantiate Settings")]
-    [SerializeField] private Transform groundTransform;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _circleRadius;
     [SerializeField] private GameObject _enemyPrefab;
@@ -41,10 +40,9 @@ public class EnemyInstantiator : MonoBehaviour
 
     public void Init()
     {
-        int level = HcLevelManager.Instance.GetGlobalLevelIndex();
-        _playerTransform = PlayerManager.Instance.transform;
         objectPooler = ObjectPooler.Instance;
-        groundTransform = GameObject.FindGameObjectWithTag("Ground").transform;
+        levelManager = HcLevelManager.Instance;
+        int level = levelManager.GetGlobalLevelIndex();
         _waveEnemyCount += level;
         _waveCoolDown -= level;
         StartCoroutine(CallEnemies());
@@ -79,7 +77,6 @@ public class EnemyInstantiator : MonoBehaviour
             enemy.transform.position = spawnPos;
             enemy.SetActive(true);
             enemy.transform.LookAt(point);
-            enemy.transform.parent = groundTransform;
         }
     }
 }

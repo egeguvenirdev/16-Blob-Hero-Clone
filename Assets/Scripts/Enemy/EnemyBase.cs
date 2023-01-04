@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 public abstract class EnemyBase : UnitBase
 {
     [SerializeField] protected float damage;
-    protected AIDestinationSetter aiDestination;
     protected PlayerManager playerManager;
     protected bool canRun = false;
     protected bool isRunning = false;
-    protected IAstarAI ai;
 
     protected void Initialized()
     {
@@ -21,7 +18,7 @@ public abstract class EnemyBase : UnitBase
     {
         Initialized();
         AIManager.ManagerUpdate += MoveTowardsPlayer;
-        ai = GetComponent<IAstarAI>();
+        //ai = GetComponent<IAstarAI>();
     }
 
     private void OnDisable()
@@ -29,13 +26,13 @@ public abstract class EnemyBase : UnitBase
         AIManager.ManagerUpdate -= MoveTowardsPlayer;
     }
 
-    protected virtual void MoveTowardsPlayer(Vector3 player)
+    protected virtual void MoveTowardsPlayer(Transform player)
     {
         //
     }
 
     public void TakeDamage(float hitAmount)
     {
-        health -= hitAmount;
+        currentHealth = hitAmount;
     }
 }

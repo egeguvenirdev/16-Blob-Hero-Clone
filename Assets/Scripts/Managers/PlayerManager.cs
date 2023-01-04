@@ -78,7 +78,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void UpdateHealth()
     {
-        Debug.Log("Current health: " + _currentHealth + "max health: " + _maxHealth);
+        //Debug.Log("Current health: " + _currentHealth + "max health: " + _maxHealth);
         uiManager.SetProgress(_currentHealth / _maxHealth);
     }
 
