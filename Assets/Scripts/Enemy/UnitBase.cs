@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class UnitBase : MonoBehaviour
 {
-    private float health = 10;
-    private Transform ground;
+    [SerializeField] private float maxHealth = 10;
+    private float currentHealth;
 
     private void Start()
     {
-        ground = GameObject.FindGameObjectWithTag("Ground").transform;
+        ResTheEnemy();
     }
 
-    public float currentHealth
+    public float setHealth
     {
-        get => health;
+        get => currentHealth;
         set
         {
             value = Mathf.Clamp(value, 0, float.MaxValue);
             currentHealth -= value;
 
-            if (health <= 0) Die();
+            if (currentHealth <= 0) Die();
         }
     }
 
@@ -48,11 +48,10 @@ public class UnitBase : MonoBehaviour
         diamond.transform.position = transform.position;
         diamond.transform.rotation = Quaternion.identity;
         diamond.SetActive(true);
-        diamond.transform.SetParent(ground);
     }
 
     private void ResTheEnemy()
     {
-        currentHealth = health;
+        currentHealth = maxHealth;
     }
 }

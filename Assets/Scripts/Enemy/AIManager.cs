@@ -6,11 +6,11 @@ using System;
 
 public class AIManager : MonoBehaviour
 {
-    public static event Action<Transform> ManagerUpdate;
+    public static event Action<Vector3> ManagerUpdate;
     [SerializeField] private Transform player;
 
     void FixedUpdate()
     {
-        ManagerUpdate?.Invoke(player);
+        ManagerUpdate?.Invoke(player.position);
     }
 }

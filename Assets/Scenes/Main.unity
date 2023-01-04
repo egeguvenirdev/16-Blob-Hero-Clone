@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8628133915912742279, guid: dee08fe56ee80d448974ef2f5819c3f7, type: 3}
+      propertyPath: playerFollowSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8628133917308557230, guid: dee08fe56ee80d448974ef2f5819c3f7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -428,9 +432,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934a9f55cc7a584eb6da614bf39114f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCount: 100
-  waveEnemyCount: 10
-  waveCoolDown: 10
+  waveCount: 1
+  waveEnemyCount: 1
+  waveCoolDown: 5
   canInstantiate: 1
   _playerTransform: {fileID: 7334631501475540594}
   _circleRadius: 5
@@ -904,6 +908,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &926348211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521703238, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &926348216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926348211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f9e1a2d1179984a81d48193c5378a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &939163225

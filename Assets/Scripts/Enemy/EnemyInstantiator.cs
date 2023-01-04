@@ -23,7 +23,7 @@ public class EnemyInstantiator : MonoBehaviour
         get => waveEnemyCount;
         set
         {
-            value = Mathf.Clamp(value, 10, 20);
+            value = Mathf.Clamp(value, waveEnemyCount, 20);
             waveEnemyCount = (int)value;
         }
     }
@@ -33,7 +33,7 @@ public class EnemyInstantiator : MonoBehaviour
         get => waveCoolDown;
         set
         {
-            value = Mathf.Clamp(value, 5, 10);
+            value = Mathf.Clamp(value, waveCoolDown, 10);
             waveCoolDown = (int)value;
         }
     }
@@ -51,7 +51,7 @@ public class EnemyInstantiator : MonoBehaviour
     public IEnumerator CallEnemies()
     {
         Debug.Log("Instantiate has been started. Enemy Count: " + waveEnemyCount + " Wave Cooldown: " + waveCoolDown);
-        while (canInstantiate)
+        for (int i = 0; i < waveCount; i++)
         {
             CreateEnemiesAroundPoint(waveEnemyCount, Vector3.zero, _circleRadius);
             yield return new WaitForSeconds(waveCoolDown);

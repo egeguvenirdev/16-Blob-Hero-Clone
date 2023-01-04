@@ -8,36 +8,39 @@ public class MeleeEnemy : EnemyBase
     [SerializeField] private SimpleAnimancer _animancer;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private bool canMove = true;
+    private Vector3 destination;
 
-    protected override void MoveTowardsPlayer(Transform player)
+    protected override void MoveTowardsPlayer(Vector3 player)
     {
         if (agent == null) return;
 
         if (player != null) // check the player if its dead or what
         {
-            Vector3 targetPos =player.position;
-            targetPos += (transform.position - player.position).normalized * 1;
-            agent.SetDestination(targetPos);
+            destination = player;
+            agent.SetDestination(destination);
             //Debug.Log("dest: " + targetPos);
         }
 
-        //Debug.Log("remanining dist: " + agent.remainingDistance);
+        Debug.Log("distance: " + agent.remainingDistance);
 
-        if (agent.remainingDistance > 0.1f)
+        if (agent.remainingDistance < 1f)
         {
-            if (!isRunning)
+            if (canMove)
             {
-                _animancer.PlayAnimation("EnemyRun");
-                StopAllCoroutines();
-                isRunning = true;
+                Debug.Log("punching");
+                isRunning = false;
+                _animancer.PlayAnimation("EnemyHit");
+                StartCoroutine(HitRoutine());
             }
         }
         else
         {
-            if (canMove)
+            if (canMove && !isRunning)
             {
-                _animancer.PlayAnimation("EnemyHit");
-                StartCoroutine(HitRoutine());
+                Debug.Log("running");
+                _animancer.PlayAnimation("EnemyRun");
+                StopAllCoroutines();
+                isRunning = true;
             }
         }
     }
@@ -45,11 +48,11 @@ public class MeleeEnemy : EnemyBase
     private IEnumerator HitRoutine()
     {
         canMove = false;
-        isRunning = false;
         yield return new WaitForSeconds(0.3f);
         playerManager.setHealth = 5;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
+        //isRunning = false;
         canMove = true;
     }
 }

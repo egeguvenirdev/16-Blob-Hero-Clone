@@ -26,13 +26,13 @@ public abstract class EnemyBase : UnitBase
         AIManager.ManagerUpdate -= MoveTowardsPlayer;
     }
 
-    protected virtual void MoveTowardsPlayer(Transform player)
+    protected virtual void MoveTowardsPlayer(Vector3 player)
     {
         //
     }
 
     public void TakeDamage(float hitAmount)
     {
-        currentHealth = hitAmount;
+        setHealth = hitAmount;
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 74413281241427515}
   - component: {fileID: 3938263636760879518}
   - component: {fileID: 1243963955868112212}
+  - component: {fileID: 6656008800066117449}
   - component: {fileID: 5719712749149546215}
   - component: {fileID: 2150393467665421120}
   m_Layer: 0
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6656008800066117449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739591790780691585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e3295b7b14fd641b5aef335e22acb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!136 &5719712749149546215
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -197,7 +211,6 @@ GameObject:
   - component: {fileID: 3049223680732589916}
   - component: {fileID: 3049223680752038478}
   - component: {fileID: 3049223680752044990}
-  - component: {fileID: 676613234553670748}
   m_Layer: 0
   m_Name: Turning slime
   m_TagString: Slime
@@ -4942,19 +4955,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &676613234553670748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3049223680732265028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16e3295b7b14fd641b5aef335e22acb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
 --- !u!1001 &910406693216546350
 PrefabInstance:
   m_ObjectHideFlags: 0
