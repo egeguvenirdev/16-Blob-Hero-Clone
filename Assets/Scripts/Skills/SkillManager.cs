@@ -6,10 +6,12 @@ using static CardSelecter;
 public class SkillManager : MonoSingleton<SkillManager>
 {
     [SerializeField] private SkillBase[] skills;
+    private EnemyInstantiator enemyInstantiator;
     private bool isFirstSelection = true;
 
     public void Init()
     {
+        enemyInstantiator = FindObjectOfType<EnemyInstantiator>();
         for (int i = 0; i < skills.Length; i++)
         {
             skills[i].Initialize();
@@ -29,5 +31,6 @@ public class SkillManager : MonoSingleton<SkillManager>
             SkillBase skillBase = skills[i];
             card.SetCardInfo(skillBase);
         }
+        enemyInstantiator.Init();
     }
 }

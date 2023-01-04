@@ -51,6 +51,7 @@ public class InstantiatedMeteor : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            GameManager.Haptic(0);
             Debug.Log("Meteor hit the enemy. Damage : " + damage);
             other.GetComponent<EnemyBase>().TakeDamage(damage);
         }
