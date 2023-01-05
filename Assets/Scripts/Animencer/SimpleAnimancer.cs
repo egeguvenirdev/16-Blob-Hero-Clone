@@ -24,8 +24,6 @@ public class SimpleAnimancer : MonoBehaviour
     public void Stop()
     {
         //_animancer.Stop();
-        _animancer.States.Current.Stop();
-        _animancer.States.Current.Weight = 1;
     }
 
     public void MakeRandomKeyframe()
@@ -89,5 +87,10 @@ public class SimpleAnimancer : MonoBehaviour
     public float GetDuration()
     {
         return _currentState.Duration;
+    }
+
+    private void PauseState()
+    {
+        _currentState.SetWeight(1);
     }
 }

@@ -63,6 +63,7 @@ public class UIManager : MonoSingleton<UIManager>
         OpenUpgradeCardPanel();
         tapToPlayUI.SetActive(false);
         isPaused = false;
+        GameManager.Instance.ReleaseTheEnemies();
         PlayerManager.Instance.StartMovement();
     }
 
@@ -122,8 +123,8 @@ public class UIManager : MonoSingleton<UIManager>
     {
         joystick.SetActive(false);
         cardSelecter.FillCardsInfos();
-        TimeManager.StopTime();
         cards.SetActive(true);
+        TimeManager.StopTime();
     }
 
     public void CloseUpgradeCardPanel()

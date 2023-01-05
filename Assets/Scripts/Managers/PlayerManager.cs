@@ -6,8 +6,9 @@ using DG.Tweening;
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [Header("Scripts")]
-    [SerializeField] private RunnerScript _runnerScript;
+    [SerializeField] private RunnerScript runnerScript;
     [SerializeField] private GameObject _healthBar;
+    [SerializeField] private GameObject character;
     [SerializeField] private UIManager uiManager;
 
     [Header("Player Stats")]
@@ -47,14 +48,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void StartMovement()
     {
-        _runnerScript.StartToRun(true);
+        runnerScript.StartToRun(true);
         _healthBar.SetActive(true);
         canRun = true;
     }
 
     public void StopMovement()
     {
-        _runnerScript.StartToRun(false);
+        runnerScript.StartToRun(false);
         _healthBar.SetActive(false);
         canRun = false;
     }
@@ -85,5 +86,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void Die()
     {
         Debug.Log("died");
+    }
+
+    public Vector3 GetCharacterPosition()
+    {
+        return character.transform.position;
     }
 }

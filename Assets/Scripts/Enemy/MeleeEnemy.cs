@@ -12,6 +12,7 @@ public class MeleeEnemy : EnemyBase
 
     protected override void MoveTowardsPlayer(Vector3 player)
     {
+        ResEnemy();
         if (agent == null) return;
 
         if (player != null) // check the player if its dead or what
@@ -52,5 +53,11 @@ public class MeleeEnemy : EnemyBase
         _animancer.Stop();
         //isRunning = false;
         canMove = true;
+    }
+
+    private void ResEnemy()
+    {
+        canMove = true;
+        isRunning = false;
     }
 }

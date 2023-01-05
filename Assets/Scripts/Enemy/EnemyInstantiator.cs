@@ -15,10 +15,12 @@ public class EnemyInstantiator : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _circleRadius;
     [SerializeField] private GameObject _enemyPrefab;
-    [SerializeField] private ObjectPooler objectPooler;
-    [SerializeField] private HcLevelManager levelManager;
+    private ObjectPooler objectPooler;
+    private HcLevelManager levelManager;
+    private PlayerManager playerManager;
 
-    [SerializeField] private float _waveEnemyCount
+    [SerializeField]
+    private float _waveEnemyCount
     {
         get => waveEnemyCount;
         set
@@ -28,7 +30,8 @@ public class EnemyInstantiator : MonoBehaviour
         }
     }
 
-    [SerializeField]private float _waveCoolDown
+    [SerializeField]
+    private float _waveCoolDown
     {
         get => waveCoolDown;
         set
@@ -40,11 +43,17 @@ public class EnemyInstantiator : MonoBehaviour
 
     public void Init()
     {
+        playerManager = PlayerManager.Instance;
         objectPooler = ObjectPooler.Instance;
         levelManager = HcLevelManager.Instance;
         int level = levelManager.GetGlobalLevelIndex();
         _waveEnemyCount += level;
         _waveCoolDown -= level;
+        Invoke("InvokeEnemy", 0.5f);
+    }
+
+    private void InvokeEnemy()
+    {
         StopAllCoroutines();
         StartCoroutine(CallEnemies());
     }
@@ -54,7 +63,8 @@ public class EnemyInstantiator : MonoBehaviour
         Debug.Log("Instantiate has been started. Enemy Count: " + waveEnemyCount + " Wave Cooldown: " + waveCoolDown);
         for (int i = 0; i < waveCount; i++)
         {
-            CreateEnemiesAroundPoint(waveEnemyCount, Vector3.zero, _circleRadius);
+            Vector3 instantiatePos = playerManager.GetCharacterPosition();
+            CreateEnemiesAroundPoint(waveEnemyCount, instantiatePos, _circleRadius);
             yield return new WaitForSeconds(waveCoolDown);
         }
     }

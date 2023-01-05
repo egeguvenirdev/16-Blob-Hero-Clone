@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 1521703242}
   - component: {fileID: 1521703241}
   - component: {fileID: 1521703240}
+  - component: {fileID: 926348216}
   m_Layer: 6
   m_Name: Health Canvas
   m_TagString: Untagged
@@ -212,6 +213,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &926348216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521703238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f9e1a2d1179984a81d48193c5378a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820657522
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,14 +675,14 @@ MonoBehaviour:
   _skillName: Turning Slime
   _cardImage: {fileID: 21300000, guid: 8d3cfc937d40146438bc45a2f28f95e5, type: 3}
   _oddSkillName: Slime Speed
-  _skillOddValue: 0.5
+  _skillOddValue: 1
   _evenSkillName: Slime Diameter
-  _skillEvenValue: 1
+  _skillEvenValue: 1.25
   _turningSlimeParent: {fileID: 7575500023560373705}
   _turningSlime1: {fileID: 5319948452650313460}
   _turningSlime2: {fileID: 7966330294859406565}
   _slimeHeight: 1
-  _slimeSpeed: 3
+  _slimeSpeed: 4
   _rangeUpgradeValue: 0.25
   damage: 5
 --- !u!1 &7334631500424685678
@@ -853,8 +866,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a8bc9d72a2ea541a17a8194ed8d98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _runnerScript: {fileID: 7334631501480717705}
+  runnerScript: {fileID: 0}
   _healthBar: {fileID: 1081029034}
+  character: {fileID: 7334631500952762658}
   uiManager: {fileID: 0}
   _maxHealth: 100
   _healthRegen: 0
@@ -1256,7 +1270,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 228161819061089812, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
 --- !u!4 &1442639092150874533 stripped
 Transform:

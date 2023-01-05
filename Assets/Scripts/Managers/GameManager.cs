@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private int addMoney = 0;
 
     private int totalMoney;
+    private EnemyInstantiator enemyInstantiator;
 
     void Start()
     {
@@ -20,16 +21,14 @@ public class GameManager : MonoSingleton<GameManager>
             SetTotalMoney(addMoney);
         }
 
+        enemyInstantiator = FindObjectOfType<EnemyInstantiator>();
         PlayerManager.Instance.Init();
         SkillManager.Instance.Init();
     }
 
-    private void Update()
+    public void ReleaseTheEnemies()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SetTotalMoney(1000);
-        }
+        enemyInstantiator.Init();
     }
 
     public void SetTotalMoney(int collectedAmount)

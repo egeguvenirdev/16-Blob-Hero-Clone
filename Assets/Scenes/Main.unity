@@ -375,6 +375,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &162324775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7334631501480717705, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee2c02d73387bd43a14105f9c230f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &192618929
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,15 +443,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934a9f55cc7a584eb6da614bf39114f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCount: 1
-  waveEnemyCount: 1
+  waveCount: 100000
+  waveEnemyCount: 10
   waveCoolDown: 5
   canInstantiate: 1
   _playerTransform: {fileID: 7334631501475540594}
   _circleRadius: 5
   _enemyPrefab: {fileID: 7302194935876645962, guid: ffd889f082b999d43a847dd6e43bb9e3, type: 3}
-  objectPooler: {fileID: 0}
-  levelManager: {fileID: 0}
 --- !u!1 &272752509
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,23 +919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &926348211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1521703238, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-  m_PrefabInstance: {fileID: 1420701727636066776}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &926348216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926348211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f9e1a2d1179984a81d48193c5378a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &939163225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1151,11 +1143,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!4 &1157544612 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5886141258649703862, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-  m_PrefabInstance: {fileID: 1420701727636066776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1251145219 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1906919709377537601, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
@@ -1893,26 +1880,14 @@ PrefabInstance:
       propertyPath: ground
       value: 
       objectReference: {fileID: 294250052}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _slimeSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _skillOddValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _skillEvenValue
-      value: 1.25
-      objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7334631501480717705, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: localMoverTarget
+    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: runnerScript
       value: 
-      objectReference: {fileID: 1157544612}
+      objectReference: {fileID: 162324775}
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1955,22 +1930,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7957984379378319359, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7957984379378319359, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7957984379378319359, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7957984379393555427, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4409,7 +4368,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8286306661155163648}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -4500,7 +4459,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1302583838}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: TapToPlayButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &8286306661263792770
 MonoBehaviour:
   m_ObjectHideFlags: 0
