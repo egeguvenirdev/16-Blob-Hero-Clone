@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 325498893355495387}
   - component: {fileID: 3687247503804309630}
   - component: {fileID: 1499500044232119476}
-  - component: {fileID: 5398894047439824647}
   - component: {fileID: 1755140034179060384}
   m_Layer: 0
   m_Name: blob-1
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5398894047439824647
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139330614307911009}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.24984011
-  m_Height: 0.29687223
-  m_Direction: 1
-  m_Center: {x: -0.008957744, y: -0.0038696472, z: -0.002808684}
 --- !u!114 &1755140034179060384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,10 +180,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3448980169376509628}
-  - component: {fileID: -6656088655760376066}
   - component: {fileID: 3448980169361230430}
   - component: {fileID: 3448980169361257390}
   - component: {fileID: 1158621455715479016}
+  - component: {fileID: 7773142454414784469}
+  - component: {fileID: 5156685481934796109}
   m_Layer: 0
   m_Name: Burst Slime
   m_TagString: BurstSlime
@@ -222,22 +208,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6656088655760376066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3448980169376316324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4728c5fe34b5d7a4abed18d8a059a595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 600
-  rb: {fileID: 1158621455715479016}
-  ground: {fileID: 0}
-  damage: 10
 --- !u!199 &3448980169361230430
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4975,6 +4945,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &7773142454414784469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448980169376316324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4728c5fe34b5d7a4abed18d8a059a595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 600
+  rb: {fileID: 1158621455715479016}
+  damage: 10
+--- !u!136 &5156685481934796109
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448980169376316324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3448980169376319612
 GameObject:
   m_ObjectHideFlags: 0

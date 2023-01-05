@@ -9,6 +9,7 @@ public class SlimeBurstSkill : SkillBase
     [SerializeField] private float speed = 5;
     [SerializeField] private bool isActive = true;
     [SerializeField] private float damage = 5;
+    private PlayerManager playerManager;
 
     public override void Initialize()
     {
@@ -16,6 +17,7 @@ public class SlimeBurstSkill : SkillBase
         {
             StartCoroutine(ThrowSlimes());
         }
+        playerManager = PlayerManager.Instance;
     }
 
     protected override void OddLevelUpgrade()
@@ -38,22 +40,13 @@ public class SlimeBurstSkill : SkillBase
             for (int i = 0; i < PlayerPrefs.GetFloat(_oddSkillName, 1); i++)
             {
                 GameObject instantiatedMeteor = ObjectPooler.Instance.GetPooledObject("BurstSlime");
-                instantiatedMeteor.transform.position = Vector3.up;
+                instantiatedMeteor.transform.position = playerManager.GetCharacterPosition();
                 instantiatedMeteor.transform.rotation = Quaternion.Euler(0, rotateAngle, 0);
                 //instantiatedMeteor.transform.SetParent(ground.transform);
                 instantiatedMeteor.SetActive(true);
                 instantiatedMeteor.GetComponent<InstantiatedBurstSlime>().ReleaseTheSlimes();
             }
             yield return new WaitForSeconds(5f / PlayerPrefs.GetFloat(_evenSkillName, 1));
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log("hit " + damage);
-            other.GetComponent<EnemyBase>().TakeDamage(damage);
         }
     }
 }
