@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class UnitBase : MonoBehaviour
 {
+    public event Action EnemyDie;
     [SerializeField] private float maxHealth = 10;
     private float currentHealth;
 
@@ -29,6 +31,7 @@ public class UnitBase : MonoBehaviour
         PlayParticle();
         DropExpDiamond();
         ResTheEnemy();
+        EnemyDie?.Invoke();
         gameObject.SetActive(false);
     }
 

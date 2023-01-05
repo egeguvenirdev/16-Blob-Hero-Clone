@@ -10,9 +10,13 @@ public class MeleeEnemy : EnemyBase
     [SerializeField] private bool canMove = true;
     private Vector3 destination;
 
+    private void Start()
+    {
+        EnemyDie += ResEnemy;
+    }
+
     protected override void MoveTowardsPlayer(Vector3 player)
     {
-        ResEnemy();
         if (agent == null) return;
 
         if (player != null) // check the player if its dead or what
@@ -57,6 +61,7 @@ public class MeleeEnemy : EnemyBase
 
     private void ResEnemy()
     {
+        Debug.Log("enemyres");
         canMove = true;
         isRunning = false;
     }
