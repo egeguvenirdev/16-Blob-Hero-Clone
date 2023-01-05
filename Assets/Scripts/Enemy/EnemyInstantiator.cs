@@ -45,6 +45,7 @@ public class EnemyInstantiator : MonoBehaviour
         int level = levelManager.GetGlobalLevelIndex();
         _waveEnemyCount += level;
         _waveCoolDown -= level;
+        StopAllCoroutines();
         StartCoroutine(CallEnemies());
     }
 

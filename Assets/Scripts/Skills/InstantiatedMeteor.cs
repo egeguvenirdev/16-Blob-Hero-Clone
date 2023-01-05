@@ -7,10 +7,11 @@ public class InstantiatedMeteor : MonoBehaviour
 {
     [Header("Meteor Stats")]
     [SerializeField] private float speed = 2f;
+    [SerializeField] private float diameter = 2f;
     [SerializeField] private float targetPointValue = 0f;
     [SerializeField] private float damage = 5f;
-    [SerializeField] private Transform ground;
     [SerializeField] private Transform poolObject;
+    [SerializeField] private LayerMask layer;
 
     private void Start()
     {
@@ -19,14 +20,14 @@ public class InstantiatedMeteor : MonoBehaviour
 
     public void RainToEnemies()
     {
-        ground = GameObject.FindGameObjectWithTag("Ground").transform;
-        transform.DOLocalMoveY(targetPointValue, speed).OnComplete( ()=> { Explode(); } );
+        transform.DOLocalMoveY(targetPointValue, speed).OnComplete(() => { Explode(); });
     }
 
     private void Explode()
     {
+        GameManager.Haptic(0);
         PlayParticle("Explosion");
-        //transform.SetParent(poolObject);
+        DetectEnemies();
         gameObject.SetActive(false);
     }
 
@@ -37,23 +38,17 @@ public class InstantiatedMeteor : MonoBehaviour
         particle.transform.position = particlePos;
         particle.transform.rotation = Quaternion.identity;
         particle.SetActive(true);
-        particle.transform.SetParent(ground);
         particle.GetComponent<ParticleSystem>().Play();
-        //Invoke("SetActiveParticle", 2.5f);
-    }
-    
-    private void SetActiveParticle(Transform particleRef)
-    {
-        particleRef.SetParent(poolObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void DetectEnemies()
     {
-        if (other.CompareTag("Enemy"))
+        Collider[] collider = Physics.OverlapSphere(transform.position, diameter, layer);
+
+        foreach (Collider gems in collider)
         {
-            GameManager.Haptic(0);
+            gems.GetComponent<EnemyBase>().TakeDamage(damage);
             Debug.Log("Meteor hit the enemy. Damage : " + damage);
-            other.GetComponent<EnemyBase>().TakeDamage(damage);
         }
     }
 }

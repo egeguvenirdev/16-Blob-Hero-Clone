@@ -21,8 +21,6 @@ public class MeleeEnemy : EnemyBase
             //Debug.Log("dest: " + targetPos);
         }
 
-        Debug.Log("distance: " + agent.remainingDistance);
-
         if (agent.remainingDistance < 1f)
         {
             if (canMove)

@@ -237,6 +237,7 @@ MonoBehaviour:
   speed: 600
   rb: {fileID: 1158621455715479016}
   ground: {fileID: 0}
+  damage: 10
 --- !u!199 &3448980169361230430
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1321865926642430444}
   - component: {fileID: 2735916551851605577}
+  - component: {fileID: 69484403504148153}
   - component: {fileID: 149492702586145411}
   - component: {fileID: 6643064546910370096}
   - component: {fileID: 1047037459017567383}
@@ -43,6 +44,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807041459443379030}
   m_Mesh: {fileID: 0}
+--- !u!114 &69484403504148153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807041459443379030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67be22d415baa094e8bd409ad1d81591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  diameter: 3
+  targetPointValue: 0
+  damage: 10
+  poolObject: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!23 &149492702586145411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4997,8 +5018,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  diameter: 2
   targetPointValue: 0
   damage: 5
+  poolObject: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!199 &4107683883794748521
 ParticleSystemRenderer:
   serializedVersion: 6
