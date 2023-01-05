@@ -10,6 +10,7 @@ public class MeteorSkill : SkillBase
     [SerializeField] private bool isActive = true;
     [SerializeField] private GameObject meteor;
     [SerializeField] private GameObject ground;
+    private PlayerManager playerManager;
 
     public override void Initialize()
     {
@@ -17,6 +18,7 @@ public class MeteorSkill : SkillBase
         {
             StartCoroutine(MakeTheMeteorRain());
         }
+        playerManager = PlayerManager.Instance;
     }
 
     protected override void OddLevelUpgrade()
@@ -49,7 +51,9 @@ public class MeteorSkill : SkillBase
 
     private Vector3 GetRandomPoint()
     {
-        Vector3 randomPoint = Vector3.up * 10 + (Random.insideUnitSphere * diameter);
+        Vector3 randomPoint = Vector3.up * 5 + (Random.insideUnitSphere * diameter);
+        Vector3 playerPos = playerManager.GetCharacterPosition();
+        randomPoint += playerPos;
         randomPoint.y = height;
         return randomPoint;
     }
