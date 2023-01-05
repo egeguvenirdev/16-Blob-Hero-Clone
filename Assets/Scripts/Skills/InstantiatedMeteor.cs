@@ -10,13 +10,7 @@ public class InstantiatedMeteor : MonoBehaviour
     [SerializeField] private float diameter = 2f;
     [SerializeField] private float targetPointValue = 0f;
     [SerializeField] private float damage = 5f;
-    [SerializeField] private Transform poolObject;
     [SerializeField] private LayerMask layer;
-
-    private void Start()
-    {
-        poolObject = ObjectPooler.Instance.transform;
-    }
 
     public void RainToEnemies()
     {
