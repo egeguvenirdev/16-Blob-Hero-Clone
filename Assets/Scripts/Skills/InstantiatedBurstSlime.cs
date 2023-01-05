@@ -8,12 +8,6 @@ public class InstantiatedBurstSlime : MonoBehaviour
     [SerializeField] private float speed = 300f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float damage = 5f;
-    private Transform poolObject;
-
-    void Start()
-    {
-        poolObject = ObjectPooler.Instance.transform;
-    }
 
     public void ReleaseTheSlimes()
     {
