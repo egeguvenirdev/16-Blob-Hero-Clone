@@ -11,7 +11,7 @@ public class UnitBase : MonoBehaviour
 
     private void Start()
     {
-        ResTheEnemy();
+        ResEnemyHealth();
     }
 
     public float setHealth
@@ -26,11 +26,11 @@ public class UnitBase : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         PlayParticle();
         DropExpDiamond();
-        ResTheEnemy();
+        ResEnemyHealth();
         EnemyDie?.Invoke();
         gameObject.SetActive(false);
     }
@@ -53,7 +53,7 @@ public class UnitBase : MonoBehaviour
         diamond.SetActive(true);
     }
 
-    private void ResTheEnemy()
+    private void ResEnemyHealth()
     {
         currentHealth = maxHealth;
     }

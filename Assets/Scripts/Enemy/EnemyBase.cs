@@ -14,14 +14,14 @@ public abstract class EnemyBase : UnitBase
         playerManager = PlayerManager.Instance;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         Initialized();
         AIManager.ManagerUpdate += MoveTowardsPlayer;
         //ai = GetComponent<IAstarAI>();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         AIManager.ManagerUpdate -= MoveTowardsPlayer;
     }

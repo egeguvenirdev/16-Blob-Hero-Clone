@@ -10,13 +10,15 @@ public class MeleeEnemy : EnemyBase
     [SerializeField] private bool canMove = true;
     private Vector3 destination;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         EnemyDie += ResEnemy;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         EnemyDie -= ResEnemy;
     }
 
@@ -62,6 +64,12 @@ public class MeleeEnemy : EnemyBase
         _animancer.Stop();
         //isRunning = false;
         canMove = true;
+    }
+
+    protected override void Die()
+    {
+        ResEnemy();
+        base.Die();
     }
 
     private void ResEnemy()
