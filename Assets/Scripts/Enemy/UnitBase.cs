@@ -6,7 +6,7 @@ using System;
 public class UnitBase : MonoBehaviour
 {
     public event Action EnemyDie;
-    [SerializeField] private float maxHealth = 10;
+    [SerializeField] protected float maxHealth = 10;
     private float currentHealth;
 
     private void Start()

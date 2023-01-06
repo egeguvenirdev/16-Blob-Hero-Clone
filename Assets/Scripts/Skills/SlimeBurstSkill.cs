@@ -40,8 +40,8 @@ public class SlimeBurstSkill : SkillBase
             for (int i = 0; i < PlayerPrefs.GetFloat(_oddSkillName, 1); i++)
             {
                 GameObject instantiatedMeteor = ObjectPooler.Instance.GetPooledObject("BurstSlime");
-                instantiatedMeteor.transform.position = playerManager.GetCharacterPosition();
-                instantiatedMeteor.transform.rotation = Quaternion.Euler(0, rotateAngle, 0);
+                instantiatedMeteor.transform.position = playerManager.GetCharacterPosition() + Vector3.up;
+                instantiatedMeteor.transform.rotation = Quaternion.Euler(0, rotateAngle * i, 0);
                 //instantiatedMeteor.transform.SetParent(ground.transform);
                 instantiatedMeteor.SetActive(true);
                 instantiatedMeteor.GetComponent<InstantiatedBurstSlime>().ReleaseTheSlimes();

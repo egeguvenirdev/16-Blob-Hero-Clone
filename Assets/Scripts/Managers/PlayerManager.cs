@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
+    public static event Action PlayerDied;
+
     [Header("Scripts")]
     [SerializeField] private RunnerScript runnerScript;
     [SerializeField] private GameObject _healthBar;
@@ -12,37 +15,37 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private UIManager uiManager;
 
     [Header("Player Stats")]
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _healthRegen;
-    [SerializeField] private float _levelupReqXP;
-    private float _currentHealth;
-    private float _currentXP;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float healthRegen;
+    [SerializeField] private float levelupReqXP;
+    private float currentHealth;
+    private float currentXP;
 
     private bool canRun = false;
     Sequence sequence;
 
     public float setHealth
     {
-        get => _currentHealth;
+        get => currentHealth;
         set
         {
             value = Mathf.Clamp(value, 0, float.MaxValue);
-            _currentHealth -= value;
+            currentHealth -= value;
 
-            if (_currentHealth <= 0) Die();
+            if (currentHealth <= 0) Die();
         }
     }
 
     public void Init()
     {
-        _currentHealth = _maxHealth;
-        _currentXP = _levelupReqXP;
+        currentHealth = maxHealth;
+        currentXP = 0;
         uiManager = UIManager.Instance;
     }
 
     private void FixedUpdate()
     {
-        _currentHealth += _healthRegen / 10;
+        currentHealth += healthRegen / 10;
         UpdateHealth();
     }
 
@@ -62,7 +65,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void GainXP()
     {
-        if (_currentXP > _levelupReqXP)
+        if (currentXP > levelupReqXP)
         {
             uiManager.OpenUpgradeCardPanel();
             //stop everything here
@@ -71,21 +74,27 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void SetHealthStats(float maxHealth, float healthRegen, float increaseAmount)
     {
-        _maxHealth += maxHealth;
-        _healthRegen = healthRegen;
-        _currentHealth += increaseAmount;
+        this.maxHealth += maxHealth;
+        this.healthRegen = healthRegen;
+        currentHealth += increaseAmount;
         UpdateHealth();
     }
 
     public void UpdateHealth()
     {
-        Debug.Log("Current health: " + _currentHealth + "max health: " + _maxHealth);
-        uiManager.SetProgress(_currentHealth / _maxHealth);
+        Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
+        uiManager.SetProgress(currentHealth / maxHealth);
     }
 
     private void Die()
     {
+        PlayerDied?.Invoke();
         Debug.Log("died");
+    }
+
+    public int GetLevel()
+    {
+        return PlayerPrefs.GetInt("PlayerLevel", 0);
     }
 
     public Vector3 GetCharacterPosition()

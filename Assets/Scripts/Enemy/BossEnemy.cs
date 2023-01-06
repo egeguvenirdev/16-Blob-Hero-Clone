@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeEnemy : EnemyBase
+public class BossEnemy : EnemyBase
 {
     [SerializeField] private SimpleAnimancer _animancer;
+    [SerializeField] private AIManager aiManager;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private bool canMove = true;
     private Vector3 destination;
 
     private void OnEnable()
     {
-        EnemyDie += ResEnemy;
+        EnemyDie += OnBossDied;
     }
 
     private void OnDisable()
     {
-        EnemyDie -= ResEnemy;
+        EnemyDie -= OnBossDied;
+    }
+
+    void Start()
+    {
+        aiManager = FindObjectOfType<AIManager>();
+        maxHealth = 100;
     }
 
     protected override void MoveTowardsPlayer(Vector3 player)
@@ -28,10 +35,9 @@ public class MeleeEnemy : EnemyBase
         {
             destination = player;
             agent.SetDestination(destination);
-            //Debug.Log("dest: " + targetPos);
         }
 
-        if (agent.remainingDistance < 1f)
+        if (agent.remainingDistance < 2f)
         {
             if (canMove)
             {
@@ -60,14 +66,12 @@ public class MeleeEnemy : EnemyBase
         playerManager.setHealth = 5;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
-        //isRunning = false;
         canMove = true;
     }
 
-    private void ResEnemy()
+    private void OnBossDied()
     {
-        Debug.Log("enemyres");
-        canMove = true;
-        isRunning = false;
+        aiManager.BossDied();
+        Destroy(gameObject);
     }
 }

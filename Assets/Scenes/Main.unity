@@ -1880,6 +1880,10 @@ PrefabInstance:
       propertyPath: ground
       value: 
       objectReference: {fileID: 294250052}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillEvenValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player

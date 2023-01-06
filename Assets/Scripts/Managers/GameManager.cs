@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.NiceVibrations;
+using System;
+
 public class GameManager : MonoSingleton<GameManager>
 {
+    public static event Action<bool> GameOver;
+
     [Header("PlayerPrefs")]
     [SerializeField] private bool clearPlayerPrefs;
 
@@ -12,6 +16,16 @@ public class GameManager : MonoSingleton<GameManager>
 
     private int totalMoney;
     private EnemyInstantiator enemyInstantiator;
+
+    private void OnEnable()
+    {
+        PlayerManager.PlayerDied += OnPlayerDied;
+    }
+
+    private void OnDisable()
+    {
+        PlayerManager.PlayerDied -= OnPlayerDied;
+    }
 
     void Start()
     {
@@ -40,6 +54,21 @@ public class GameManager : MonoSingleton<GameManager>
         totalMoney = 0;
     }
 
+    private void OnPlayerDied()
+    {
+        FinishGame(false);
+    }
+
+    private void OnPlayerWin()
+    {
+        FinishGame(true);
+    }
+
+    private void FinishGame(bool winCondition)
+    {
+        //kill the managers
+        GameOver?.Invoke(winCondition);
+    }
 
     public static void Haptic(int type)
     {

@@ -8,6 +8,7 @@ public class EnemyInstantiator : MonoBehaviour
     [Header("Wave Settings")]
     [SerializeField] private int waveCount;
     [SerializeField] private int waveEnemyCount;
+    [SerializeField] private int bossCount = 1;
     [SerializeField] private int waveCoolDown;
     [SerializeField] private bool canInstantiate = true;
 
@@ -18,6 +19,7 @@ public class EnemyInstantiator : MonoBehaviour
     private ObjectPooler objectPooler;
     private HcLevelManager levelManager;
     private PlayerManager playerManager;
+    private bool canSpawnBoss = true;
 
     [SerializeField]
     private float _waveEnemyCount
@@ -49,7 +51,26 @@ public class EnemyInstantiator : MonoBehaviour
         int level = levelManager.GetGlobalLevelIndex();
         _waveEnemyCount += level;
         _waveCoolDown -= level;
+        bossCount = (int)Mathf.Clamp(level / 2, 1, 5);
         Invoke("InvokeEnemy", 0.5f);
+    }
+
+    public void DeInit()
+    {
+        StopAllCoroutines();
+    }
+
+    private void LateUpdate()
+    {
+        if (playerManager!=null)
+        {
+            int level = playerManager.GetLevel();
+            if (level >= 10 && canSpawnBoss)
+            {
+                canSpawnBoss = false;
+                CallRandomBoss();
+            }
+        }
     }
 
     private void InvokeEnemy()
@@ -89,5 +110,31 @@ public class EnemyInstantiator : MonoBehaviour
             enemy.SetActive(true);
             enemy.transform.LookAt(point);
         }
+    }
+
+    private void CallRandomBoss()
+    {
+        for (int i = 0; i < bossCount; i++)
+        {
+            // Distance around the circle
+            var radians = 2 * Mathf.PI / bossCount * i;
+
+            // direction
+            var vertical = Mathf.Sin(radians);
+            var horizontal = Mathf.Cos(radians);
+
+            var spawnDir = new Vector3(horizontal, 0, vertical);
+            var spawnPos = playerManager.GetCharacterPosition() + spawnDir * _circleRadius; // Radius is just the distance away from the point
+
+            var enemy = objectPooler.GetPooledObject("Enemy");
+            enemy.transform.position = spawnPos;
+            enemy.SetActive(true);
+            enemy.transform.LookAt(playerManager.GetCharacterPosition());
+        }
+    }
+
+    private void GameEnded()
+    {
+        //kill the sc
     }
 }
