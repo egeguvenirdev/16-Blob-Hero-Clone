@@ -11,14 +11,14 @@ public class BossEnemy : EnemyBase
     [SerializeField] private bool canMove = true;
     private Vector3 destination;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        EnemyDie += OnBossDied;
+        base.OnEnable();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        EnemyDie -= OnBossDied;
+        base.OnDisable();
     }
 
     void Start()
@@ -67,6 +67,12 @@ public class BossEnemy : EnemyBase
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
         canMove = true;
+    }
+
+    protected override void Die()
+    {
+        OnBossDied();
+        base.Die();
     }
 
     private void OnBossDied()

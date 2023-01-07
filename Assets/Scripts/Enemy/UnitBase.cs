@@ -5,7 +5,6 @@ using System;
 
 public class UnitBase : MonoBehaviour
 {
-    public event Action EnemyDie;
     [SerializeField] protected float maxHealth = 10;
     private float currentHealth;
 
@@ -31,7 +30,6 @@ public class UnitBase : MonoBehaviour
         PlayParticle();
         DropExpDiamond();
         ResEnemyHealth();
-        EnemyDie?.Invoke();
         gameObject.SetActive(false);
     }
 

@@ -13,13 +13,12 @@ public class MeleeEnemy : EnemyBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        EnemyDie += ResEnemy;
+        ResEnemy();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        EnemyDie -= ResEnemy;
     }
 
     protected override void MoveTowardsPlayer(Vector3 player)
@@ -37,7 +36,6 @@ public class MeleeEnemy : EnemyBase
         {
             if (canMove)
             {
-                Debug.Log("punching");
                 isRunning = false;
                 _animancer.PlayAnimation("EnemyHit");
                 StartCoroutine(HitRoutine());
@@ -47,7 +45,6 @@ public class MeleeEnemy : EnemyBase
         {
             if (canMove && !isRunning)
             {
-                Debug.Log("running");
                 _animancer.PlayAnimation("EnemyRun");
                 StopAllCoroutines();
                 isRunning = true;
