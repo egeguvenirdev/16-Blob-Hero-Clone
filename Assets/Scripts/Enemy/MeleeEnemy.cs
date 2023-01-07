@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class MeleeEnemy : EnemyBase
 {
@@ -66,7 +67,29 @@ public class MeleeEnemy : EnemyBase
     protected override void Die()
     {
         ResEnemy();
+        PlayParticle();
+        DropExpDiamond();   
         base.Die();
+        gameObject.SetActive(false);
+    }
+
+    private void PlayParticle()
+    {
+        var particle = ObjectPooler.Instance.GetPooledObject("HitParticle");
+        Vector3 particlePos = new Vector3(transform.position.x, 0.25f, transform.position.z);
+        particle.transform.position = particlePos;
+        particle.transform.rotation = Quaternion.identity;
+        particle.SetActive(true);
+        particle.GetComponent<ParticleSystem>().Play();
+    }
+
+    private void DropExpDiamond()
+    {
+        GameObject diamond = ObjectPooler.Instance.GetPooledObject("Gem");
+        diamond.transform.position = transform.position;
+        diamond.transform.rotation = Quaternion.identity;
+        diamond.SetActive(true);
+        diamond.transform.DOJump(diamond.transform.position, 2, 1, 0.3f);
     }
 
     private void ResEnemy()

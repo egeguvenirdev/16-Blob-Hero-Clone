@@ -1866,6 +1866,22 @@ PrefabInstance:
       propertyPath: variableJoystick
       value: 
       objectReference: {fileID: 80505884}
+    - target: {fileID: 1081029034, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081029035, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.9556
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081029035, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.4542
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293091990, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: ground
       value: 

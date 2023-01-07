@@ -10,7 +10,7 @@ public class UnitBase : MonoBehaviour
 
     private void Start()
     {
-        ResEnemyHealth();
+        ResHealth();
     }
 
     public float setHealth
@@ -27,31 +27,10 @@ public class UnitBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        PlayParticle();
-        DropExpDiamond();
-        ResEnemyHealth();
-        gameObject.SetActive(false);
+        ResHealth();
     }
 
-    private void PlayParticle()
-    {
-        var particle = ObjectPooler.Instance.GetPooledObject("HitParticle");
-        Vector3 particlePos = new Vector3(transform.position.x, 0.25f, transform.position.z);
-        particle.transform.position = particlePos;
-        particle.transform.rotation = Quaternion.identity;
-        particle.SetActive(true);
-        particle.GetComponent<ParticleSystem>().Play();
-    }
-
-    private void DropExpDiamond()
-    {
-        GameObject diamond = ObjectPooler.Instance.GetPooledObject("Gem");
-        diamond.transform.position = transform.position;
-        diamond.transform.rotation = Quaternion.identity;
-        diamond.SetActive(true);
-    }
-
-    private void ResEnemyHealth()
+    private void ResHealth()
     {
         currentHealth = maxHealth;
     }
