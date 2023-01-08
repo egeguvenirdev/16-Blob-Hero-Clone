@@ -19,8 +19,10 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private TMP_Text currentLV;
     [SerializeField] private TMP_Text totalMoneyText;
 
-    [Header("Health Bar")]
+    [Header("Health & Xp Bars")]
     [SerializeField] private Image healthBarImage;
+    [SerializeField] private GameObject xpBar;
+    [SerializeField] private Image xpBarImage;
 
     [Header("Scripts")]
     [SerializeField] private CardSelecter cardSelecter;
@@ -62,6 +64,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         OpenUpgradeCardPanel();
         tapToPlayUI.SetActive(false);
+        xpBar.SetActive(true);
         isPaused = false;
         GameManager.Instance.ReleaseTheEnemies();
         PlayerManager.Instance.StartMovement();
@@ -91,9 +94,14 @@ public class UIManager : MonoSingleton<UIManager>
         currentLV.text = "Level " + levelInt;
     }
 
-    public void SetProgress(float health)
+    public void SetPlayerHealth(float health)
     {
         healthBarImage.fillAmount = health;
+    }
+
+    public void SetPlayerXp(float xp)
+    {
+        xpBarImage.fillAmount = xp;
     }
 
     public void SetMoneyUI(int totalMoney, bool setSmoothly)

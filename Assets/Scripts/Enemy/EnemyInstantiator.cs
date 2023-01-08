@@ -84,7 +84,7 @@ public class EnemyInstantiator : MonoBehaviour
         Debug.Log("Instantiate has been started. Enemy Count: " + waveEnemyCount + " Wave Cooldown: " + waveCoolDown);
         for (int i = 0; i < waveCount; i++)
         {
-            Vector3 instantiatePos = playerManager.GetCharacterPosition();
+            Vector3 instantiatePos = playerManager.GetCharacterTransform().position;
             CreateEnemiesAroundPoint(waveEnemyCount, instantiatePos, _circleRadius);
             yield return new WaitForSeconds(waveCoolDown);
         }
@@ -124,12 +124,12 @@ public class EnemyInstantiator : MonoBehaviour
             var horizontal = Mathf.Cos(radians);
 
             var spawnDir = new Vector3(horizontal, 0, vertical);
-            var spawnPos = playerManager.GetCharacterPosition() + spawnDir * _circleRadius; // Radius is just the distance away from the point
+            var spawnPos = playerManager.GetCharacterTransform().position + spawnDir * _circleRadius; // Radius is just the distance away from the point
 
             var enemy = objectPooler.GetPooledObject("Enemy");
             enemy.transform.position = spawnPos;
             enemy.SetActive(true);
-            enemy.transform.LookAt(playerManager.GetCharacterPosition());
+            enemy.transform.LookAt(playerManager.GetCharacterTransform());
         }
     }
 

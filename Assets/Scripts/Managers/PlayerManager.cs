@@ -18,6 +18,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private float maxHealth;
     [SerializeField] private float healthRegen;
     [SerializeField] private float levelupReqXP;
+    [SerializeField] private float gemXpValue;
     private float currentHealth;
     private float currentXP;
 
@@ -46,7 +47,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void FixedUpdate()
     {
         currentHealth += healthRegen / 10;
-        UpdateHealth();
+        UpdateXpAndHealth();
     }
 
     public void StartMovement()
@@ -77,13 +78,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         this.maxHealth += maxHealth;
         this.healthRegen = healthRegen;
         currentHealth += increaseAmount;
-        UpdateHealth();
+        UpdateXpAndHealth();
     }
 
-    public void UpdateHealth()
+    public void UpdateXpAndHealth()
     {
         Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
-        uiManager.SetProgress(currentHealth / maxHealth);
+        uiManager.SetPlayerHealth(currentHealth / maxHealth);
+        uiManager.SetPlayerXp(currentXP / levelupReqXP);
     }
 
     private void Die()
@@ -97,8 +99,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         return PlayerPrefs.GetInt("PlayerLevel", 0);
     }
 
-    public Vector3 GetCharacterPosition()
+    public Transform GetCharacterTransform()
     {
-        return character.transform.position;
+        return character.transform;
     }
 }

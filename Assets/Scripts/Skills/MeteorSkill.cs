@@ -52,7 +52,7 @@ public class MeteorSkill : SkillBase
     private Vector3 GetRandomPoint()
     {
         Vector3 randomPoint = Vector3.up * 5 + (Random.insideUnitSphere * diameter);
-        Vector3 playerPos = playerManager.GetCharacterPosition();
+        Vector3 playerPos = playerManager.GetCharacterTransform().position;
         randomPoint += playerPos;
         randomPoint.y = height;
         return randomPoint;

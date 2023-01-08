@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8253853717484965469}
   - component: {fileID: 7042953723425226662}
+  - component: {fileID: -8228066434039734892}
   m_Layer: 8
   m_Name: Gem
   m_TagString: Gem
@@ -41,10 +42,22 @@ BoxCollider:
   m_GameObject: {fileID: 8181383083382788634}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8228066434039734892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181383083382788634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a416e7951ed12bb4a8a228bf8dcf85c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8748347306877334622
 GameObject:
   m_ObjectHideFlags: 0

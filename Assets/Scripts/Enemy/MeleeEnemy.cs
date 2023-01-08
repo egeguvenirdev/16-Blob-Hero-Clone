@@ -57,6 +57,7 @@ public class MeleeEnemy : EnemyBase
     {
         canMove = false;
         yield return new WaitForSeconds(0.3f);
+        GameManager.Haptic(1);
         playerManager.setHealth = 5;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
@@ -89,7 +90,10 @@ public class MeleeEnemy : EnemyBase
         diamond.transform.position = transform.position;
         diamond.transform.rotation = Quaternion.identity;
         diamond.SetActive(true);
-        diamond.transform.DOJump(diamond.transform.position, 2, 1, 0.3f);
+        diamond.transform.DOJump(diamond.transform.position, 2, 1, 0.3f).OnComplete( ()=> 
+        {
+            diamond.GetComponent<Collider>().enabled = true;
+        } );
     }
 
     private void ResEnemy()

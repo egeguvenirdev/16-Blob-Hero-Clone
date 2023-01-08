@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - CollectParticle
   - BurstSlime
+  - GemParticle
   layers:
   - Default
   - TransparentFX
