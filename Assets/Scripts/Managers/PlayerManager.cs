@@ -37,6 +37,18 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
     }
 
+    public float setXp
+    {
+        get => currentXP;
+        set
+        {
+            value = Mathf.Clamp(value, 0, levelupReqXP);
+            currentXP += value;
+
+            GainXP();
+        }
+    }
+
     public void Init()
     {
         currentHealth = maxHealth;
@@ -66,8 +78,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void GainXP()
     {
-        if (currentXP > levelupReqXP)
+        if (currentXP >= levelupReqXP)
         {
+            currentXP = 0;
             uiManager.OpenUpgradeCardPanel();
             //stop everything here
         }
@@ -83,8 +96,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void UpdateXpAndHealth()
     {
-        Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
+        //Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
         uiManager.SetPlayerHealth(currentHealth / maxHealth);
+        Debug.Log("xp: " + currentXP / levelupReqXP);
         uiManager.SetPlayerXp(currentXP / levelupReqXP);
     }
 

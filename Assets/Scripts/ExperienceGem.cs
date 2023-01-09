@@ -22,7 +22,7 @@ public class ExperienceGem : MonoBehaviour
         {
             col.enabled = true;
             gameObject.SetActive(false);
-            playerManager.GainXP();
+            playerManager.setXp = 5;
         });
     }
 }
