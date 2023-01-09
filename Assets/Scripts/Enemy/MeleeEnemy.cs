@@ -30,10 +30,10 @@ public class MeleeEnemy : EnemyBase
         {
             destination = player;
             agent.SetDestination(destination);
-            //Debug.Log("dest: " + targetPos);
+            //Debug.Log(agent.remainingDistance);
         }
 
-        if (agent.remainingDistance < 1f)
+        if (agent.remainingDistance > 0 && agent.remainingDistance < 1f)
         {
             if (canMove)
             {

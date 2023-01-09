@@ -12,6 +12,7 @@ public abstract class EnemyBase : UnitBase
     protected void Initialized()
     {
         playerManager = PlayerManager.Instance;
+        isRunning = false;
     }
 
     protected virtual void OnEnable()
