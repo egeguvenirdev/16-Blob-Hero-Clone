@@ -363,6 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5249558904627604671}
+  - component: {fileID: 6228908362924547115}
   m_Layer: 6
   m_Name: Skills
   m_TagString: Untagged
@@ -387,9 +388,24 @@ Transform:
   - {fileID: 313733011530582581}
   - {fileID: 2901472694906045158}
   - {fileID: 7980468503040931279}
-  m_Father: {fileID: 7334631500952762661}
+  m_Father: {fileID: 7334631501480717707}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6228908362924547115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683746401823477944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8779bab598b21ce4eb67eaf1a1ca22b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7334631500952762661}
+  offset: {x: 0, y: 0, z: 0}
+  playerFollowSpeed: 10
 --- !u!1 &1873915024658531102
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +766,6 @@ Transform:
   m_Children:
   - {fileID: 1442639092150874533}
   - {fileID: 1521703239}
-  - {fileID: 5249558904627604671}
   m_Father: {fileID: 7334631501480717707}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -882,6 +897,7 @@ Transform:
   m_Children:
   - {fileID: 5886141258649703862}
   - {fileID: 7334631500952762661}
+  - {fileID: 5249558904627604671}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

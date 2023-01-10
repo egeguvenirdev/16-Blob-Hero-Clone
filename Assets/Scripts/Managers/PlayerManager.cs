@@ -98,7 +98,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         //Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
         uiManager.SetPlayerHealth(currentHealth / maxHealth);
-        Debug.Log("xp: " + currentXP / levelupReqXP);
         uiManager.SetPlayerXp(currentXP / levelupReqXP);
     }
 

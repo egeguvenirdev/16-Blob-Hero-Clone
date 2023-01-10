@@ -23,11 +23,12 @@ public class TurningSlimeSkill : SkillBase
         }
     }
 
-    [Button]
-    private void StartRotate()
+    private void Update()
     {
-        _turningSlimeParent.transform.DORotate(Vector3.up * 360, _slimeSpeed / PlayerPrefs.GetFloat(_oddSkillName, 0.5f), RotateMode.FastBeyond360)
-            .SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
+        if (_turningSlimeParent.activeSelf == true)
+        {
+            _turningSlimeParent.transform.Rotate(Vector3.up *_slimeSpeed * PlayerPrefs.GetFloat(_oddSkillName, 0.5f) * Time.deltaTime * 10);
+        }       
     }
 
     protected override void OddLevelUpgrade()
@@ -48,6 +49,6 @@ public class TurningSlimeSkill : SkillBase
 
         _turningSlime1.transform.localPosition = new Vector3(0, _slimeHeight, PlayerPrefs.GetFloat(_evenSkillName, 0) + _skillEvenValue);
         _turningSlime2.transform.localPosition = new Vector3(0, _slimeHeight, -(PlayerPrefs.GetFloat(_evenSkillName, 0) + _skillEvenValue));
-        StartRotate();
+        //StartRotate();
     }
 }
