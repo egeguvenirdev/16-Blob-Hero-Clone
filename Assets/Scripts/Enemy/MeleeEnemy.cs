@@ -90,7 +90,8 @@ public class MeleeEnemy : EnemyBase
         diamond.transform.position = transform.position;
         diamond.transform.rotation = Quaternion.identity;
         diamond.SetActive(true);
-        diamond.transform.DOJump(diamond.transform.position, 2, 1, 0.3f).OnComplete( ()=> 
+
+        diamond.transform.DOJump(new Vector3(diamond.transform.position.x, 0, diamond.transform.position.z), 2, 1, 0.3f).OnComplete( ()=> 
         {
             diamond.GetComponent<Collider>().enabled = true;
         } );
@@ -98,7 +99,6 @@ public class MeleeEnemy : EnemyBase
 
     private void ResEnemy()
     {
-        Debug.Log("enemyres");
         canMove = true;
         isRunning = false;
     }

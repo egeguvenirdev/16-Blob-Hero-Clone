@@ -53,9 +53,11 @@ public class CardData : MonoBehaviour
         GameManager.Haptic(0);
         if (!isActive) return;
         skillSelected?.Invoke();
+        Debug.Log("cardselect");
         transform.DOKill(true);
         transform.DOPunchScale(Vector3.one * 0.3f, 0.5f, 6).SetUpdate(true).OnComplete( () => {
             SkillBase.UpgradeButton();
+            Debug.Log("closepanel");
             UIManager.Instance.CloseUpgradeCardPanel();
         });
         

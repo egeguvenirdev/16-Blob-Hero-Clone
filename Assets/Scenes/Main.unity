@@ -179,6 +179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3066104949047846516}
     - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
+      propertyPath: joystickSC
+      value: 
+      objectReference: {fileID: 80505884}
+    - target: {fileID: 2002187615835466824, guid: 5fb9a730b9c4e9c40bbb49c6ed054331, type: 3}
       propertyPath: xpBarImage
       value: 
       objectReference: {fileID: 111679664}
@@ -266,7 +270,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8628133915912742276, guid: dee08fe56ee80d448974ef2f5819c3f7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8628133915912742276, guid: dee08fe56ee80d448974ef2f5819c3f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -752,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
       propertyPath: itemsToPool.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
       propertyPath: itemsToPool.Array.data[0].amountToPool
@@ -824,6 +828,18 @@ PrefabInstance:
       objectReference: {fileID: 8181383083382788634, guid: 7e3ef5e6ccc37284bb638882ac313974, type: 3}
     - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
       propertyPath: itemsToPool.Array.data[5].shouldExpand
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
+      propertyPath: itemsToPool.Array.data[6].amountToPool
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
+      propertyPath: itemsToPool.Array.data[6].objectToPool
+      value: 
+      objectReference: {fileID: 3049223680732265028, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
+    - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
+      propertyPath: itemsToPool.Array.data[6].shouldExpand
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4191595481970433962, guid: c6282f0179621a644b771f60523675cc, type: 3}
@@ -2070,6 +2086,34 @@ PrefabInstance:
       propertyPath: ground
       value: 
       objectReference: {fileID: 294250052}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: objectPooler
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _oddSkillName
+      value: Slime Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: Slime Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillOddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _skillEvenValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _rangeUpgradeValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _oddSkillName
+      value: Burst Count
+      objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2121,6 +2165,10 @@ PrefabInstance:
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575500023560373705, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Speed
@@ -3858,7 +3906,7 @@ RectTransform:
   - {fileID: 1583100976}
   - {fileID: 1575801072}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

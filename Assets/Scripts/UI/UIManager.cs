@@ -14,6 +14,7 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private GameObject restartLvUI;
     [SerializeField] private GameObject cards;
     [SerializeField] private GameObject joystick;
+    [SerializeField] private VariableJoystick joystickSC;
 
     [Header("Level & Money")]
     [SerializeField] private TMP_Text currentLV;
@@ -130,6 +131,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void OpenUpgradeCardPanel()
     {
         joystick.SetActive(false);
+        joystickSC.EndPointerInput();
         cardSelecter.FillCardsInfos();
         cards.SetActive(true);
         TimeManager.StopTime();

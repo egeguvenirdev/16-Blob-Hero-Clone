@@ -58,6 +58,14 @@ public class VariableJoystick : Joystick
         }
         base.HandleInput(magnitude, normalised, radius, cam);
     }
+
+    public void EndPointerInput()
+    {
+        if (joystickType != JoystickType.Fixed)
+            background.gameObject.SetActive(false);
+
+        base.OnPointerUp(null);
+    }
 }
 
 public enum JoystickType { Fixed, Floating, Dynamic }

@@ -6,6 +6,17 @@ public class InstantiatedTurningSlime : MonoBehaviour
 {
     [Header("Turning Slime Stats")]
     [SerializeField] private float damage = 5f;
+    private PlayerManager playerManager;
+
+    private void Start()
+    {
+        playerManager = PlayerManager.Instance;
+    }
+
+    private void LateUpdate()
+    {
+        transform.LookAt(playerManager.GetCharacterTransform());
+    }
 
     private void OnTriggerEnter(Collider other)
     {

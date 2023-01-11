@@ -16,6 +16,9 @@ public class MagnetSkill : SkillBase
         if (PlayerPrefs.GetInt(_skillName, 0) >= 1)
         {
             StartCoroutine(PullTheDiamonds());
+            float particleSpeed = 0.2f * PlayerPrefs.GetFloat(_evenSkillName, 1); // set particle emission speed
+            var collectingEmission = collectingParticle.emission;
+            collectingEmission.rateOverTime = particleSpeed;
         }
     }
 
@@ -52,11 +55,7 @@ public class MagnetSkill : SkillBase
 
         foreach (Collider gems in collider)
         {
-            gems.transform.DOJump(Vector3.zero, 3, 1, 0.4f).OnComplete( () => 
-            {
-                gems.transform.SetParent(objectPooler);
-                gems.gameObject.SetActive(false);
-            });
+            gems.GetComponent<ExperienceGem>().JumpToPlayer();
         }
     }
 }
