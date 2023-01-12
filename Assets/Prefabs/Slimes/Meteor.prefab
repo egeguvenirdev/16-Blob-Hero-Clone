@@ -60,7 +60,6 @@ MonoBehaviour:
   diameter: 3
   targetPointValue: 0
   damage: 10
-  poolObject: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 0
@@ -5021,7 +5020,6 @@ MonoBehaviour:
   diameter: 2
   targetPointValue: 0
   damage: 5
-  poolObject: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 128

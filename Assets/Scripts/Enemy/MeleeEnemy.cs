@@ -61,7 +61,6 @@ public class MeleeEnemy : EnemyBase
         playerManager.setHealth = 2;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
-        //isRunning = false;
         canMove = true;
     }
 

@@ -16,6 +16,7 @@ TagManager:
   - CollectParticle
   - BurstSlime
   - GemParticle
+  - Boss
   layers:
   - Default
   - TransparentFX

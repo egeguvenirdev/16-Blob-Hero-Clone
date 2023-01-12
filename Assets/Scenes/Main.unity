@@ -736,11 +736,6 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: cceb2c4cba9630b48a9b79109ba901b5, type: 2}
---- !u!136 &506673790 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 2075923177, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-  m_PrefabInstance: {fileID: 1420701727636066776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &623345372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8472600968593100269, guid: b9368faf647247645932fab29c7fe435, type: 3}
@@ -765,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
       propertyPath: itemsToPool.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
       propertyPath: itemsToPool.Array.data[0].amountToPool
@@ -849,6 +844,18 @@ PrefabInstance:
       objectReference: {fileID: 3049223680732265028, guid: 325e1b060aa8e6541a43d076d59250bd, type: 3}
     - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
       propertyPath: itemsToPool.Array.data[6].shouldExpand
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
+      propertyPath: itemsToPool.Array.data[7].amountToPool
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
+      propertyPath: itemsToPool.Array.data[7].objectToPool
+      value: 
+      objectReference: {fileID: 8907171290395722886, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+    - target: {fileID: 4191595481970433957, guid: c6282f0179621a644b771f60523675cc, type: 3}
+      propertyPath: itemsToPool.Array.data[7].shouldExpand
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4191595481970433962, guid: c6282f0179621a644b771f60523675cc, type: 3}
@@ -2202,10 +2209,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 926348216, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 946320809, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: ground
       value: 
@@ -2214,82 +2217,14 @@ PrefabInstance:
       propertyPath: variableJoystick
       value: 
       objectReference: {fileID: 80505884}
-    - target: {fileID: 1081029034, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293091990, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293091990, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_FillOrigin
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2075923177, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_Radius
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: ground
       value: 
       objectReference: {fileID: 294250052}
-    - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: diameter
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _evenSkillName
-      value: Magnet Range
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: objectPooler
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _oddSkillName
-      value: Turning Slime Count
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _evenSkillName
-      value: Turning Slime Speed
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _skillOddValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _skillEvenValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _rangeUpgradeValue
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _oddSkillName
-      value: Fired Slime Count
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _evenSkillName
-      value: Fire Rate
-      objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: maxHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: levelupReqXP
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: characterCollider
-      value: 
-      objectReference: {fileID: 506673790}
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2332,66 +2267,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _oddSkillName
-      value: Extra Health
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _evenSkillName
-      value: Regen Overtime
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _skillEvenValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7575500023560373705, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_Speed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_Height
-      value: 0.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_Radius
-      value: 0.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_AutoRepath
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_Acceleration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_WalkableMask
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: avoidancePriority
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726147124532794231, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: m_AutoTraverseOffMeshLink
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

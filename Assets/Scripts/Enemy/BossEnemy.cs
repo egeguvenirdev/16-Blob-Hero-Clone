@@ -35,15 +35,15 @@ public class BossEnemy : EnemyBase
         {
             destination = player;
             agent.SetDestination(destination);
+            //Debug.Log(agent.remainingDistance);
         }
 
-        if (agent.remainingDistance < 2f)
+        if (agent.remainingDistance > 0 && agent.remainingDistance < 2f)
         {
             if (canMove)
             {
-                Debug.Log("punching");
                 isRunning = false;
-                _animancer.PlayAnimation("EnemyHit");
+                _animancer.PlayAnimation("BossAttack");
                 StartCoroutine(HitRoutine());
             }
         }
@@ -51,8 +51,7 @@ public class BossEnemy : EnemyBase
         {
             if (canMove && !isRunning)
             {
-                Debug.Log("running");
-                _animancer.PlayAnimation("EnemyRun");
+                _animancer.PlayAnimation("BossRun");
                 StopAllCoroutines();
                 isRunning = true;
             }
@@ -63,7 +62,8 @@ public class BossEnemy : EnemyBase
     {
         canMove = false;
         yield return new WaitForSeconds(0.3f);
-        playerManager.setHealth = 5;
+        GameManager.Haptic(1);
+        playerManager.setHealth = damage;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
         canMove = true;
@@ -71,6 +71,7 @@ public class BossEnemy : EnemyBase
 
     protected override void Die()
     {
+        PlayParticle();
         OnBossDied();
         base.Die();
     }
@@ -78,6 +79,16 @@ public class BossEnemy : EnemyBase
     private void OnBossDied()
     {
         aiManager.BossDied();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    private void PlayParticle()
+    {
+        var particle = ObjectPooler.Instance.GetPooledObject("HitParticle");
+        Vector3 particlePos = new Vector3(transform.position.x, 0.25f, transform.position.z);
+        particle.transform.position = particlePos;
+        particle.transform.rotation = Quaternion.identity;
+        particle.SetActive(true);
+        particle.GetComponent<ParticleSystem>().Play();
     }
 }

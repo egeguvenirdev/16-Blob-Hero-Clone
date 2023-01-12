@@ -65,7 +65,7 @@ public class EnemyInstantiator : MonoBehaviour
         if (playerManager!=null)
         {
             int level = playerManager.GetLevel();
-            if (level >= 10 && canSpawnBoss)
+            if (level % 2 == 0 && level != 0 && canSpawnBoss)
             {
                 canSpawnBoss = false;
                 CallRandomBoss();
@@ -85,14 +85,21 @@ public class EnemyInstantiator : MonoBehaviour
         for (int i = 0; i < waveCount; i++)
         {
             Vector3 instantiatePos = playerManager.GetCharacterTransform().position;
-            CreateEnemiesAroundPoint(waveEnemyCount, instantiatePos, _circleRadius);
+            CreateEnemiesAroundPoint(waveEnemyCount, instantiatePos, _circleRadius, "Enemy");
             yield return new WaitForSeconds(waveCoolDown);
         }
     }
 
-    public void CreateEnemiesAroundPoint(int enemyCount, Vector3 point, float radius)
+    private void CallRandomBoss()
     {
+        Debug.Log("Boss has been insstantiated.");
+        Vector3 instantiatePos = playerManager.GetCharacterTransform().position;
+        CreateEnemiesAroundPoint(1, instantiatePos, _circleRadius, "Boss");
+    }
 
+
+    public void CreateEnemiesAroundPoint(int enemyCount, Vector3 point, float radius, string name)
+    {
         for (int i = 0; i < enemyCount; i++)
         {
             // Distance around the circle
@@ -105,31 +112,10 @@ public class EnemyInstantiator : MonoBehaviour
             var spawnDir = new Vector3(horizontal, 0, vertical);
             var spawnPos = point + spawnDir * radius; // Radius is just the distance away from the point
 
-            var enemy = objectPooler.GetPooledObject("Enemy");
+            var enemy = objectPooler.GetPooledObject(name);
             enemy.transform.position = spawnPos;
             enemy.SetActive(true);
             enemy.transform.LookAt(point);
-        }
-    }
-
-    private void CallRandomBoss()
-    {
-        for (int i = 0; i < bossCount; i++)
-        {
-            // Distance around the circle
-            var radians = 2 * Mathf.PI / bossCount * i;
-
-            // direction
-            var vertical = Mathf.Sin(radians);
-            var horizontal = Mathf.Cos(radians);
-
-            var spawnDir = new Vector3(horizontal, 0, vertical);
-            var spawnPos = playerManager.GetCharacterTransform().position + spawnDir * _circleRadius; // Radius is just the distance away from the point
-
-            var enemy = objectPooler.GetPooledObject("Enemy");
-            enemy.transform.position = spawnPos;
-            enemy.SetActive(true);
-            enemy.transform.LookAt(playerManager.GetCharacterTransform());
         }
     }
 
