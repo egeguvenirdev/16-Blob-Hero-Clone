@@ -12,6 +12,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private RunnerScript runnerScript;
     [SerializeField] private GameObject _healthBar;
     [SerializeField] private GameObject character;
+    [SerializeField] private CapsuleCollider characterCollider;
     [SerializeField] private UIManager uiManager;
 
     [Header("Player Stats")]
@@ -115,6 +116,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         Debug.Log("died");
     }
 
+    public void SetColliderRadius(float multiplier)
+    {
+        characterCollider.radius = multiplier;
+    }
+
     public int GetLevel()
     {
         return PlayerPrefs.GetInt("PlayerLevel", 0);
@@ -123,5 +129,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public Transform GetCharacterTransform()
     {
         return character.transform;
+    }
+
+    public CapsuleCollider GetCharacterCollider()
+    {
+        return characterCollider;
     }
 }

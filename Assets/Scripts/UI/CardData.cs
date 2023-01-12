@@ -44,7 +44,7 @@ public class CardData : MonoBehaviour
 
     private string SkillStatCalculator(string s, float f) 
     {
-        return PlayerPrefs.GetFloat(s, f) + " -> " + (PlayerPrefs.GetFloat(s, 0) + f + f);
+        return PlayerPrefs.GetFloat(s, f) + " -> " + (PlayerPrefs.GetFloat(s, f) + f);
     }
 
     public void ButtonOnclick()

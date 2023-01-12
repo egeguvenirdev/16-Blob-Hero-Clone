@@ -736,6 +736,11 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: cceb2c4cba9630b48a9b79109ba901b5, type: 2}
+--- !u!136 &506673790 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 2075923177, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+  m_PrefabInstance: {fileID: 1420701727636066776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &623345372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8472600968593100269, guid: b9368faf647247645932fab29c7fe435, type: 3}
@@ -2221,21 +2226,33 @@ PrefabInstance:
       propertyPath: m_FillOrigin
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2075923177, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: ground
       value: 
       objectReference: {fileID: 294250052}
+    - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: diameter
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 581014068325440984, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: Magnet Range
+      objectReference: {fileID: 0}
     - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: objectPooler
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: _oddSkillName
-      value: Slime Count
+      value: Turning Slime Count
       objectReference: {fileID: 0}
     - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: _evenSkillName
-      value: Slime Speed
+      value: Turning Slime Speed
       objectReference: {fileID: 0}
     - target: {fileID: 3166603942966437976, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: _skillOddValue
@@ -2251,16 +2268,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: _oddSkillName
-      value: Burst Count
+      value: Fired Slime Count
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659896832607591529, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: Fire Rate
       objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: levelupReqXP
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: characterCollider
+      value: 
+      objectReference: {fileID: 506673790}
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2304,6 +2333,14 @@ PrefabInstance:
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _oddSkillName
+      value: Extra Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
+      propertyPath: _evenSkillName
+      value: Regen Overtime
       objectReference: {fileID: 0}
     - target: {fileID: 7443286173712739274, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: _skillEvenValue

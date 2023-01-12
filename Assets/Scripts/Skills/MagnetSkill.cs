@@ -10,8 +10,42 @@ public class MagnetSkill : SkillBase
     [SerializeField] private bool isActive = true;
     [SerializeField] private LayerMask layer;
     [SerializeField] private Transform objectPooler;
+    [SerializeField] private CapsuleCollider playerCollider;
+    [SerializeField] private float colliderRadius;
+    [SerializeField] private PlayerManager playerManager;
 
     public override void Initialize()
+    {
+        playerManager = PlayerManager.Instance;
+        playerCollider = playerManager.GetCharacterCollider();
+        colliderRadius = playerCollider.radius;
+
+        if (PlayerPrefs.GetInt(_skillName, 0) >= 1)
+        {
+            SetMagnetSize();
+        }
+    }
+
+    protected override void OddLevelUpgrade()
+    {
+        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 1) + _skillOddValue);
+        SetMagnetSize();
+    }
+
+    protected override void EvenLevelUpgrade()
+    {
+        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 1) + _skillOddValue);
+        SetMagnetSize();
+    }
+
+    private void SetMagnetSize()
+    {
+
+        playerManager.SetColliderRadius(colliderRadius * PlayerPrefs.GetFloat(_oddSkillName, 1));
+    }
+
+    //OLD MAGNET
+    /*public override void Initialize()
     {
         if (PlayerPrefs.GetInt(_skillName, 0) >= 1)
         {
@@ -57,5 +91,5 @@ public class MagnetSkill : SkillBase
         {
             gems.GetComponent<ExperienceGem>().JumpToPlayer();
         }
-    }
+    }*/
 }

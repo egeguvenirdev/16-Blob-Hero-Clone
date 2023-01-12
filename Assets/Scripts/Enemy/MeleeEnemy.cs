@@ -58,7 +58,7 @@ public class MeleeEnemy : EnemyBase
         canMove = false;
         yield return new WaitForSeconds(0.3f);
         GameManager.Haptic(1);
-        playerManager.setHealth = 5;
+        playerManager.setHealth = 2;
         yield return new WaitForSeconds(0.8f);
         _animancer.Stop();
         //isRunning = false;
