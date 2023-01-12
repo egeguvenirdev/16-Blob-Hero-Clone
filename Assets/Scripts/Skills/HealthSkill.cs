@@ -24,6 +24,6 @@ public class HealthSkill : SkillBase
     private void UpgradePlayer(float maxHealthUpgrade, float healthRegen, float boostCurrentHealth)
     {
         Debug.Log("Health Skill Values ->:  Max Health" + PlayerPrefs.GetFloat(_oddSkillName, 0) + " Helath Regen: " + PlayerPrefs.GetFloat(_oddSkillName, 0));
-        PlayerManager.Instance.SetHealthStats(maxHealthUpgrade, healthRegen, boostCurrentHealth);
+        PlayerManager.Instance.SetHealthAndStats(maxHealthUpgrade, healthRegen, boostCurrentHealth);
     }
 }

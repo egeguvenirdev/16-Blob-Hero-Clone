@@ -13,11 +13,11 @@ public class SlimeBurstSkill : SkillBase
 
     public override void Initialize()
     {
+        playerManager = PlayerManager.Instance;
         if (PlayerPrefs.GetInt(_skillName, 0) >= 1)
         {
             StartCoroutine(ThrowSlimes());
         }
-        playerManager = PlayerManager.Instance;
     }
 
     protected override void OddLevelUpgrade()

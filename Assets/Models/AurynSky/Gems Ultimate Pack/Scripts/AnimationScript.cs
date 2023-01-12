@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
-public class AnimationScript : MonoBehaviour {
+public class AnimationScript : MonoBehaviour
+{
 
     public bool isAnimated = false;
 
@@ -16,7 +18,7 @@ public class AnimationScript : MonoBehaviour {
     private bool goingUp = true;
     public float floatRate;
     private float floatTimer;
-   
+
     public Vector3 startScale;
     public Vector3 endScale;
 
@@ -25,24 +27,32 @@ public class AnimationScript : MonoBehaviour {
     public float scaleRate;
     private float scaleTimer;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+        IdleAnim();
+    }
 
-       
-        
-        if(isAnimated)
+    private void IdleAnim()
+    {
+
+        transform.DOLocalMoveY(transform.localPosition.y + 0.25f, 2).SetLoops(-1, LoopType.Yoyo);
+        //transform.DOLocalRotate(new Vector3(-55.211f, 0, 360), 4f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        transform.DOLocalRotate(new Vector3(-55.211f, 0, 180), 4f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+    }
+
+    // Update is called once per frame
+    /*void Update()
+    {
+
+        if (isAnimated)
         {
-            if(isRotating)
+            if (isRotating)
             {
                 transform.Rotate(rotationAngle * rotationSpeed * Time.deltaTime);
             }
 
-            if(isFloating)
+            if (isFloating)
             {
                 floatTimer += Time.deltaTime;
                 Vector3 moveDir = new Vector3(0.0f, 0.0f, floatSpeed);
@@ -55,7 +65,7 @@ public class AnimationScript : MonoBehaviour {
                     floatSpeed = -floatSpeed;
                 }
 
-                else if(!goingUp && floatTimer >= floatRate)
+                else if (!goingUp && floatTimer >= floatRate)
                 {
                     goingUp = true;
                     floatTimer = 0;
@@ -63,7 +73,7 @@ public class AnimationScript : MonoBehaviour {
                 }
             }
 
-            if(isScaling)
+            if (isScaling)
             {
                 scaleTimer += Time.deltaTime;
 
@@ -76,7 +86,7 @@ public class AnimationScript : MonoBehaviour {
                     transform.localScale = Vector3.Lerp(transform.localScale, startScale, scaleSpeed * Time.deltaTime);
                 }
 
-                if(scaleTimer >= scaleRate)
+                if (scaleTimer >= scaleRate)
                 {
                     if (scalingUp) { scalingUp = false; }
                     else if (!scalingUp) { scalingUp = true; }
@@ -84,5 +94,5 @@ public class AnimationScript : MonoBehaviour {
                 }
             }
         }
-	}
+    }*/
 }

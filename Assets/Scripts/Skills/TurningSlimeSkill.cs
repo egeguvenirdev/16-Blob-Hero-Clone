@@ -28,13 +28,13 @@ public class TurningSlimeSkill : SkillBase
     {
         if (_turningSlimeParent.activeSelf == true)
         {
-            _turningSlimeParent.transform.Rotate(Vector3.up * -_slimeSpeed * PlayerPrefs.GetFloat(_evenSkillName, 1f) * Time.deltaTime * 10);
+            _turningSlimeParent.transform.Rotate(Vector3.up * -_slimeSpeed * PlayerPrefs.GetFloat(_evenSkillName, 1f) * Time.deltaTime * 20);
         }       
     }
 
     protected override void OddLevelUpgrade()
     {
-        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 0) + _skillOddValue);
+        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 1) + _skillOddValue);
         OpenSlimes();
     }
 
@@ -49,7 +49,7 @@ public class TurningSlimeSkill : SkillBase
         _turningSlimeParent.SetActive(true);
         ResetSlimesParent();
 
-        float slimeCount = PlayerPrefs.GetFloat(_oddSkillName, 1);
+        float slimeCount = PlayerPrefs.GetFloat(_oddSkillName, 2);
         float slimeRotateY = 360 / slimeCount ;
         for (int i = 0; i < slimeCount; i++)
         {

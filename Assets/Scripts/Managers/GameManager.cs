@@ -36,6 +36,10 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         enemyInstantiator = FindObjectOfType<EnemyInstantiator>();
+    }
+
+    public void StartTheGame()
+    {
         PlayerManager.Instance.Init();
         SkillManager.Instance.Init();
     }

@@ -19,6 +19,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private float healthRegen;
     [SerializeField] private float levelupReqXP;
     [SerializeField] private float gemXpValue;
+    private int playerLevel;
     private float currentHealth;
     private float currentXP;
 
@@ -51,6 +52,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void Init()
     {
+        playerLevel = PlayerPrefs.GetInt("PlayerLevel", 1);
         currentHealth = maxHealth;
         currentXP = 0;
         uiManager = UIManager.Instance;
@@ -80,13 +82,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         if (currentXP >= levelupReqXP)
         {
+            PlayerPrefs.SetInt("PlayerLevel", PlayerPrefs.GetInt("PlayerLevel", 1) + 1);
+            playerLevel = PlayerPrefs.GetInt("PlayerLevel", 1);
             currentXP = 0;
             uiManager.OpenUpgradeCardPanel();
             //stop everything here
         }
     }
 
-    public void SetHealthStats(float maxHealth, float healthRegen, float increaseAmount)
+    public void SetHealthAndStats(float maxHealth, float healthRegen, float increaseAmount)
     {
         this.maxHealth += maxHealth;
         this.healthRegen = healthRegen;
@@ -96,9 +100,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void UpdateXpAndHealth()
     {
-        //Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
-        uiManager.SetPlayerHealth(currentHealth / maxHealth);
-        uiManager.SetPlayerXp(currentXP / levelupReqXP);
+        if (uiManager != null)
+        {
+            //Debug.Log("Current health: " + currentHealth + "max health: " + maxHealth);
+            playerLevel = PlayerPrefs.GetInt("PlayerLevel", 1);
+            uiManager.SetPlayerHealth(currentHealth / maxHealth);
+            uiManager.SetPlayerXp(currentXP / levelupReqXP, playerLevel);
+        }
     }
 
     private void Die()
