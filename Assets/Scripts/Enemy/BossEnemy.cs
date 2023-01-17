@@ -5,9 +5,7 @@ using UnityEngine.AI;
 
 public class BossEnemy : EnemyBase
 {
-    [SerializeField] private SimpleAnimancer _animancer;
-    [SerializeField] private AIManager aiManager;
-    [SerializeField] private NavMeshAgent agent;
+    private AIManager aiManager;
     [SerializeField] private bool canMove = true;
     private Vector3 destination;
 

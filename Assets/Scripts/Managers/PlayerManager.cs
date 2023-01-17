@@ -10,7 +10,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     [Header("Scripts")]
     [SerializeField] private RunnerScript runnerScript;
-    [SerializeField] private GameObject _healthBar;
+    [SerializeField] private GameObject healthBar;
     [SerializeField] private GameObject character;
     [SerializeField] private CapsuleCollider characterCollider;
     [SerializeField] private UIManager uiManager;
@@ -20,6 +20,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private float healthRegen;
     [SerializeField] private float levelupReqXP;
     [SerializeField] private float gemXpValue;
+
+    [Header("Player Skills")]
+    [SerializeField] private GameObject playerSkills;
+
     private int playerLevel;
     private float currentHealth;
     private float currentXP;
@@ -32,10 +36,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         get => currentHealth;
         set
         {
-            value = Mathf.Clamp(value, 0, float.MaxValue);
-            currentHealth -= value;
-
-            if (currentHealth <= 0) Die();
+            if (currentHealth > 0)
+            {
+                value = Mathf.Clamp(value, 0, float.MaxValue);
+                currentHealth -= value;
+                if (currentHealth <= 0) Die();
+            }      
         }
     }
 
@@ -68,14 +74,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void StartMovement()
     {
         runnerScript.StartToRun(true);
-        _healthBar.SetActive(true);
+        healthBar.SetActive(true);
         canRun = true;
     }
 
     public void StopMovement()
     {
         runnerScript.StartToRun(false);
-        _healthBar.SetActive(false);
+        healthBar.SetActive(false);
         canRun = false;
     }
 
@@ -113,6 +119,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void Die()
     {
         PlayerDied?.Invoke();
+        playerSkills.SetActive(false);
+        StopMovement();
         Debug.Log("died");
     }
 

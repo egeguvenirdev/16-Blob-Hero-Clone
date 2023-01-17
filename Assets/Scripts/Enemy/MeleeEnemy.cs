@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using DG.Tweening;
 
 public class MeleeEnemy : EnemyBase
 {
-    [SerializeField] private SimpleAnimancer _animancer;
-    [SerializeField] private NavMeshAgent agent;
+
     [SerializeField] private bool canMove = true;
     private Vector3 destination;
 

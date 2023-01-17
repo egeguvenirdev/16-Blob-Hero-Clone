@@ -11,6 +11,7 @@ public class RunnerScript : MonoBehaviour
     [SerializeField] private Transform localMoverTarget;
     [SerializeField] private SimpleAnimancer animancer;
     [SerializeField] private PlayerSwerve playerSwerve;
+    [SerializeField] private JoystickPlayerMover joystickPlayerMover;
 
     [Header("Run Settings")]
     [SerializeField] private float swipeLerpSpeed = 2f;
@@ -20,11 +21,17 @@ public class RunnerScript : MonoBehaviour
     private bool canFollow = true;
     private string currentAnimName = "Walking";
 
-    void Awake()
+    private void OnEnable()
     {
         playerSwerve.OnSwerveStart += PlayerSwipe_OnPointerDown;
         playerSwerve.OnSwerveEnd += PlayerSwipe_OnPointerUp;
         oldPosition = localMoverTarget.localPosition;
+    }
+
+    private void OnDisable()
+    {
+        playerSwerve.OnSwerveStart -= PlayerSwipe_OnPointerDown;
+        playerSwerve.OnSwerveEnd -= PlayerSwipe_OnPointerUp;
     }
 
     public void Init()
@@ -47,7 +54,7 @@ public class RunnerScript : MonoBehaviour
         }
         else
         {
-            canSwerve = false;
+            StopMovement();
         }
     }
 
@@ -96,7 +103,11 @@ public class RunnerScript : MonoBehaviour
 
     public void StopMovement()
     {
-        //canFollow = false;
+        joystickPlayerMover.enabled = false;
+        playerSwerve.OnSwerveStart -= PlayerSwipe_OnPointerDown;
+        playerSwerve.OnSwerveEnd -= PlayerSwipe_OnPointerUp; 
+        canFollow = false;
         canSwerve = false;
+        PlayAnimation("Die");
     }
 }

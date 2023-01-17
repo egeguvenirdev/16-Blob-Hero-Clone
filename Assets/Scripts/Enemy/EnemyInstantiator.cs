@@ -118,9 +118,4 @@ public class EnemyInstantiator : MonoBehaviour
             enemy.transform.LookAt(point);
         }
     }
-
-    private void GameEnded()
-    {
-        //kill the sc
-    }
 }

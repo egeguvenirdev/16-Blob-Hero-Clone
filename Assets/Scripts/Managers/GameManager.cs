@@ -16,15 +16,18 @@ public class GameManager : MonoSingleton<GameManager>
 
     private int totalMoney;
     private EnemyInstantiator enemyInstantiator;
+    private UIManager uIManager;
 
     private void OnEnable()
     {
         PlayerManager.PlayerDied += OnPlayerDied;
+        AIManager.PlayerWin += OnPlayerWin;
     }
 
     private void OnDisable()
     {
         PlayerManager.PlayerDied -= OnPlayerDied;
+        AIManager.PlayerWin -= OnPlayerWin;
     }
 
     void Start()
@@ -34,7 +37,7 @@ public class GameManager : MonoSingleton<GameManager>
             PlayerPrefs.DeleteAll();
             SetTotalMoney(addMoney);
         }
-
+        uIManager = UIManager.Instance;
         enemyInstantiator = FindObjectOfType<EnemyInstantiator>();
     }
 
@@ -60,17 +63,20 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnPlayerDied()
     {
+        uIManager.RestartButtonUI();
         FinishGame(false);
     }
 
     private void OnPlayerWin()
     {
+        uIManager.NextLvUI();
         FinishGame(true);
     }
 
     private void FinishGame(bool winCondition)
     {
         //kill the managers
+        enemyInstantiator.DeInit();
         GameOver?.Invoke(winCondition);
     }
 

@@ -20,7 +20,7 @@ public class InstantiatedTurningSlime : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Boss"))
         {
             GameManager.Haptic(0);
             //Debug.Log("Burst slime hit the enemy. Damage : " + damage);

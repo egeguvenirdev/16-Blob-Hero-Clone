@@ -703,6 +703,7 @@ MonoBehaviour:
   _clips:
   - {fileID: -203655887218126122, guid: fa7f5e967fbfbb943a0667e442a24ac3, type: 3}
   - {fileID: -203655887218126122, guid: 8cff4bb40e0fc03488a8277634e7b631, type: 3}
+  - {fileID: -203655887218126122, guid: 7b7a0995748b09f4f86e2f09a8f74884, type: 3}
   _playDefault: 0
 --- !u!1 &3962122823281883366
 GameObject:
@@ -1589,9 +1590,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  damage: 10
   _animancer: {fileID: 7652707453054661033}
   agent: {fileID: 453522502002227338}
+  damage: 10
+  dieClips:
+  - {fileID: -203655887218126122, guid: 6565332055c6a8d46a7606bd371a9d90, type: 3}
+  - {fileID: -203655887218126122, guid: ea276a09a6a09b649aa853d4703f1bd2, type: 3}
+  - {fileID: -203655887218126122, guid: beaecd6489211784ca1ca286670be7f6, type: 3}
+  - {fileID: -203655887218126122, guid: 68d1590be31acdb4c88d25f628375d5e, type: 3}
+  - {fileID: -203655887218126122, guid: 26ca00a3ea8795e45ac0744c725862ca, type: 3}
   canMove: 1
 --- !u!136 &5922096014904903605
 CapsuleCollider:
