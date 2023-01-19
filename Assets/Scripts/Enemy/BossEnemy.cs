@@ -19,14 +19,15 @@ public class BossEnemy : EnemyBase
         base.OnDisable();
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         aiManager = FindObjectOfType<AIManager>();
     }
 
     private void FixedUpdate()
     {
-        Debug.Log("boss health: " + setHealth);
+        Debug.Log("boss health: " + setHealth + " max health: " + maxHealth);
     }
 
     protected override void MoveTowardsPlayer(Vector3 player)
@@ -37,6 +38,7 @@ public class BossEnemy : EnemyBase
         {
             destination = player;
             agent.SetDestination(destination);
+            transform.LookAt(player);
             //Debug.Log(agent.remainingDistance);
         }
 

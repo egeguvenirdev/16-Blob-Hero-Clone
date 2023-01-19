@@ -466,6 +466,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111679662}
   m_CullTransparentMesh: 1
+--- !u!1001 &162566923
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5810209492715280643, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.881
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355063924025091514, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907171290395722886, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
+      propertyPath: m_Name
+      value: King Boss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 613fbc19d9928df459b7de77c50cb492, type: 3}
 --- !u!1 &192618929
 GameObject:
   m_ObjectHideFlags: 0

@@ -104,7 +104,7 @@ public class RunnerScript : MonoBehaviour
 
     private void OnGameEnd(bool winCondition)
     {
-        if (joystickPlayerMover.enabled)
+        if (joystickPlayerMover != null)
         {
             joystickPlayerMover.enabled = false;
         }

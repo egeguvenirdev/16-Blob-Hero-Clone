@@ -81,7 +81,6 @@ public class UIManager : MonoSingleton<UIManager>
         nextLvMenuUI.SetActive(false);
         isPaused = false;
         HcLevelManager.Instance.LevelUp();
-        LevelText();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //SAHNEYI YUKLE BASTAN
     }
 

@@ -6,9 +6,9 @@ using System;
 public class UnitBase : MonoBehaviour
 {
     [SerializeField] protected float maxHealth = 10;
-    private float currentHealth;
+    protected float currentHealth;
 
-    private void Start()
+    protected virtual void Start()
     {
         ResHealth();
     }
@@ -33,5 +33,6 @@ public class UnitBase : MonoBehaviour
     private void ResHealth()
     {
         currentHealth = maxHealth;
+        Debug.Log("health: " + currentHealth);
     }
 }
