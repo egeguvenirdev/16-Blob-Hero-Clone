@@ -69,7 +69,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnPlayerWin()
     {
-        Debug.Log("player win");
         uIManager.NextLvUI();
         FinishGame(true);
     }

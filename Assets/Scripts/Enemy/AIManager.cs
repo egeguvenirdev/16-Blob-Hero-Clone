@@ -61,7 +61,6 @@ public class AIManager : MonoBehaviour
         diedBossCount++;
         if (diedBossCount >= totalBossCount)
         {
-            Debug.Log("player winnnnn");
             PlayerWin?.Invoke();
         }
     }

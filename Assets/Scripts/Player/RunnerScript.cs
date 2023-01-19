@@ -104,7 +104,10 @@ public class RunnerScript : MonoBehaviour
 
     private void OnGameEnd(bool winCondition)
     {
-        joystickPlayerMover.enabled = false;
+        if (joystickPlayerMover.enabled)
+        {
+            joystickPlayerMover.enabled = false;
+        }
         playerSwerve.OnSwerveStart -= PlayerSwipe_OnPointerDown;
         playerSwerve.OnSwerveEnd -= PlayerSwipe_OnPointerUp;
         StopMovement();
