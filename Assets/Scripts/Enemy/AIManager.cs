@@ -21,11 +21,6 @@ public class AIManager : MonoBehaviour
         {
             value = Mathf.Clamp(value, 1, 5);
             totalBossCount = (int)value;
-
-            if (diedBossCount >= totalBossCount)
-            {
-                PlayerWin?.Invoke();
-            }
         }
     }
 
@@ -47,6 +42,7 @@ public class AIManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("Boss Count: " + totalBossCount + " killed boss count: " + diedBossCount);
         if (isPlayerAlive)
         {
             ManagerUpdate?.Invoke(player.position);
@@ -57,10 +53,16 @@ public class AIManager : MonoBehaviour
     {
         isPlayerAlive = false;
         PlayerDied?.Invoke(winCheck);
+        this.enabled = false;
     }
 
     public void BossDied()
     {
         diedBossCount++;
+        if (diedBossCount >= totalBossCount)
+        {
+            Debug.Log("player winnnnn");
+            PlayerWin?.Invoke();
+        }
     }
 }

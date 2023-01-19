@@ -22,7 +22,11 @@ public class BossEnemy : EnemyBase
     void Start()
     {
         aiManager = FindObjectOfType<AIManager>();
-        maxHealth = 100;
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log("boss health: " + setHealth);
     }
 
     protected override void MoveTowardsPlayer(Vector3 player)

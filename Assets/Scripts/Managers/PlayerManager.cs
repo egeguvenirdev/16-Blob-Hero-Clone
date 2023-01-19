@@ -28,9 +28,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private float currentHealth;
     private float currentXP;
 
-    private bool canRun = false;
-    Sequence sequence;
-
     public float setHealth
     {
         get => currentHealth;
@@ -65,6 +62,16 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         uiManager = UIManager.Instance;
     }
 
+    private void OnEnable()
+    {
+        AIManager.PlayerWin += OnWin;
+    }
+
+    private void OnDisable()
+    {
+        AIManager.PlayerWin -= OnWin;
+    }
+
     private void FixedUpdate()
     {
         currentHealth += healthRegen / 10;
@@ -73,16 +80,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void StartMovement()
     {
-        runnerScript.StartToRun(true);
         healthBar.SetActive(true);
-        canRun = true;
     }
 
     public void StopMovement()
     {
-        runnerScript.StartToRun(false);
         healthBar.SetActive(false);
-        canRun = false;
     }
 
     public void GainXP()
@@ -116,12 +119,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
     }
 
+    private void OnWin()
+    {
+        playerSkills.SetActive(false);
+        StopMovement();
+    }
+
     private void Die()
     {
         PlayerDied?.Invoke();
         playerSkills.SetActive(false);
         StopMovement();
-        Debug.Log("died");
     }
 
     public void SetColliderRadius(float multiplier)

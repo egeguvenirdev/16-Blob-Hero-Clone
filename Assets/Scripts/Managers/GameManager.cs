@@ -69,6 +69,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnPlayerWin()
     {
+        Debug.Log("player win");
         uIManager.NextLvUI();
         FinishGame(true);
     }
@@ -76,7 +77,6 @@ public class GameManager : MonoSingleton<GameManager>
     private void FinishGame(bool winCondition)
     {
         //kill the managers
-        enemyInstantiator.DeInit();
         GameOver?.Invoke(winCondition);
     }
 

@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5e47cc690320e2f488421fda5dc80fe8, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: e5b6ca557bde13145afe870d22ce759a, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -736,17 +736,6 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: cceb2c4cba9630b48a9b79109ba901b5, type: 2}
---- !u!114 &549715531 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 946320809, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-  m_PrefabInstance: {fileID: 1420701727636066776}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &623345372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8472600968593100269, guid: b9368faf647247645932fab29c7fe435, type: 3}
@@ -1145,11 +1134,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8472600967717925775, guid: b9368faf647247645932fab29c7fe435, type: 3}
   m_PrefabInstance: {fileID: 939163225}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &947987997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 683746401823477944, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-  m_PrefabInstance: {fileID: 1420701727636066776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &966570412 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3891270584660039319, guid: b9368faf647247645932fab29c7fe435, type: 3}
@@ -1297,11 +1281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bf2fe662876974385ed5e3741be64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1447794395 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1081029034, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-  m_PrefabInstance: {fileID: 1420701727636066776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1575801071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,11 +1848,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPrefabs:
-  - {fileID: 8181383083382788634, guid: 7e3ef5e6ccc37284bb638882ac313974, type: 3}
-  - {fileID: 8181383083382788634, guid: 7e3ef5e6ccc37284bb638882ac313974, type: 3}
-  - {fileID: 8181383083382788634, guid: 7e3ef5e6ccc37284bb638882ac313974, type: 3}
-  - {fileID: 8181383083382788634, guid: 7e3ef5e6ccc37284bb638882ac313974, type: 3}
-  - {fileID: 8181383083382788634, guid: 7e3ef5e6ccc37284bb638882ac313974, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   levelIndex: 0
   forceLevel: 0
 --- !u!1 &2072490979
@@ -2247,34 +2226,10 @@ PrefabInstance:
       propertyPath: ground
       value: 
       objectReference: {fileID: 294250052}
-    - target: {fileID: 36279326259207901, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _evenSkillName
-      value: Meteor Speed
-      objectReference: {fileID: 0}
-    - target: {fileID: 2366972400231332101, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _clips.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2366972400231332101, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: _clips.Array.data[2]
-      value: 
-      objectReference: {fileID: -203655887218126122, guid: a5f6194446917a944bbfb765a3dfb6b1, type: 3}
     - target: {fileID: 7334631501480717700, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1447794395}
-    - target: {fileID: 7334631501480717704, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: playerSkills
-      value: 
-      objectReference: {fileID: 947987997}
-    - target: {fileID: 7334631501480717705, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
-      propertyPath: joystickPlayerMover
-      value: 
-      objectReference: {fileID: 549715531}
     - target: {fileID: 7334631501480717707, guid: 030a500b6cbd24442bafea91ca2798f9, type: 3}
       propertyPath: m_RootOrder
       value: 3

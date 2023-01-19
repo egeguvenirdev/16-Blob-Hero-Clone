@@ -347,7 +347,7 @@ MonoBehaviour:
   _cardImage: {fileID: 21300000, guid: c0bf98a372006f04f9f95f6539a85c69, type: 3}
   _oddSkillName: Meteor Count
   _skillOddValue: 1
-  _evenSkillName: Meteor CD
+  _evenSkillName: Meteor Speed
   _skillEvenValue: 1
   diameter: 5
   height: 10
@@ -830,6 +830,8 @@ MonoBehaviour:
   _clips:
   - {fileID: -203655887218126122, guid: 60a2a51619c851346bb6467a902a816a, type: 3}
   - {fileID: -203655887218126122, guid: acca701bc6211e743a6e04990270beb0, type: 3}
+  - {fileID: -203655887218126122, guid: a5f6194446917a944bbfb765a3dfb6b1, type: 3}
+  - {fileID: -203655887218126122, guid: 553e6c17b90c8124887d5521203c4864, type: 3}
   _playDefault: 1
 --- !u!136 &2075923177
 CapsuleCollider:
@@ -913,7 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runnerScript: {fileID: 7334631501480717705}
-  _healthBar: {fileID: 1081029034}
+  healthBar: {fileID: 1081029034}
   character: {fileID: 7334631500952762658}
   characterCollider: {fileID: 2075923177}
   uiManager: {fileID: 0}
@@ -921,6 +923,7 @@ MonoBehaviour:
   healthRegen: 0
   levelupReqXP: 200
   gemXpValue: 0
+  playerSkills: {fileID: 683746401823477944}
 --- !u!114 &7334631501480717705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,6 +940,7 @@ MonoBehaviour:
   localMoverTarget: {fileID: 5886141258649703862}
   animancer: {fileID: 2366972400231332101}
   playerSwerve: {fileID: 182378436109458471}
+  joystickPlayerMover: {fileID: 946320809}
   swipeLerpSpeed: 5
 --- !u!114 &182378436109458471
 MonoBehaviour:

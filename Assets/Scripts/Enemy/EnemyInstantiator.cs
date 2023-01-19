@@ -43,6 +43,16 @@ public class EnemyInstantiator : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        GameManager.GameOver += DeInit;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.GameOver -= DeInit;
+    }
+
     public void Init()
     {
         playerManager = PlayerManager.Instance;
@@ -55,7 +65,7 @@ public class EnemyInstantiator : MonoBehaviour
         Invoke("InvokeEnemy", 0.5f);
     }
 
-    public void DeInit()
+    public void DeInit(bool winConditioin)
     {
         StopAllCoroutines();
     }
@@ -65,7 +75,7 @@ public class EnemyInstantiator : MonoBehaviour
         if (playerManager!=null)
         {
             int level = playerManager.GetLevel();
-            if (level % 2 == 0 && level != 0 && canSpawnBoss)
+            if (level % 1 == 0 && level != 0 && canSpawnBoss)
             {
                 canSpawnBoss = false;
                 CallRandomBoss();
@@ -81,7 +91,7 @@ public class EnemyInstantiator : MonoBehaviour
 
     public IEnumerator CallEnemies()
     {
-        Debug.Log("Instantiate has been started. Enemy Count: " + waveEnemyCount + " Wave Cooldown: " + waveCoolDown);
+        //Debug.Log("Instantiate has been started. Enemy Count: " + waveEnemyCount + " Wave Cooldown: " + waveCoolDown);
         for (int i = 0; i < waveCount; i++)
         {
             Vector3 instantiatePos = playerManager.GetCharacterTransform().position;

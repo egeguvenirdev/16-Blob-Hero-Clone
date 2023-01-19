@@ -24,7 +24,6 @@ public abstract class EnemyBase : UnitBase
         Initialized();
         AIManager.ManagerUpdate += MoveTowardsPlayer;
         AIManager.PlayerDied += OnGameEnd;
-        //ai = GetComponent<IAstarAI>();
     }
 
     protected virtual void OnDisable()
@@ -54,12 +53,20 @@ public abstract class EnemyBase : UnitBase
 
     private void OnPlayerWin()
     {
-        int randomClipNumber = Random.Range(0, dieClips.Length);
-        _animancer.PlayAnimation(dieClips[randomClipNumber]);
+        if (gameObject.activeSelf)
+        {
+            int randomClipNumber = Random.Range(0, dieClips.Length);
+            _animancer.PlayAnimation(dieClips[randomClipNumber]);
+            agent.isStopped = true;
+        }
     }
 
     private void OnPlayerLose()
     {
-        _animancer.PlayAnimation("EnemyWin");
+        if (gameObject.activeSelf)
+        {
+            _animancer.PlayAnimation("EnemyWin");
+            agent.isStopped = true;
+        }
     }
 }

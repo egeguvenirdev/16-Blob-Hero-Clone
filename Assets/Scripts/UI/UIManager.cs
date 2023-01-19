@@ -46,6 +46,7 @@ public class UIManager : MonoSingleton<UIManager>
         if (!isPaused)
         {
             joystick.SetActive(false);
+            joystickSC.EndPointerInput();
             tapToPlayUI.SetActive(false);
             nextLvMenuUI.SetActive(true);
             isPaused = true;
@@ -57,6 +58,7 @@ public class UIManager : MonoSingleton<UIManager>
         if (!isPaused)
         {
             joystick.SetActive(false);
+            joystickSC.EndPointerInput();
             restartLvUI.SetActive(true);
             isPaused = true;
         }

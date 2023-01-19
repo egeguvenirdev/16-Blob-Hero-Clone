@@ -2182,7 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75de169d0d3f0144bb3c6fd0cfde26fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   _animancer: {fileID: 5183305524646936463}
   agent: {fileID: 1765700034922285126}
   damage: 10

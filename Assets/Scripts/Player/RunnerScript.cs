@@ -25,6 +25,7 @@ public class RunnerScript : MonoBehaviour
     {
         playerSwerve.OnSwerveStart += PlayerSwipe_OnPointerDown;
         playerSwerve.OnSwerveEnd += PlayerSwipe_OnPointerUp;
+        GameManager.GameOver += OnGameEnd;
         oldPosition = localMoverTarget.localPosition;
     }
 
@@ -101,13 +102,25 @@ public class RunnerScript : MonoBehaviour
         canSwerve = false;
     }
 
-    public void StopMovement()
+    private void OnGameEnd(bool winCondition)
     {
         joystickPlayerMover.enabled = false;
         playerSwerve.OnSwerveStart -= PlayerSwipe_OnPointerDown;
-        playerSwerve.OnSwerveEnd -= PlayerSwipe_OnPointerUp; 
+        playerSwerve.OnSwerveEnd -= PlayerSwipe_OnPointerUp;
+        StopMovement();
+
+        if (winCondition)
+        {
+            PlayAnimation("Win");
+            return;          
+        }
+        PlayAnimation("Die");
+    }
+
+    public void StopMovement()
+    {
+
         canFollow = false;
         canSwerve = false;
-        PlayAnimation("Die");
     }
 }
