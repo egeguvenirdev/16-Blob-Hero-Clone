@@ -24,7 +24,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081029034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1293091989}
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.4542}
+  m_AnchoredPosition: {x: 0, y: -0.216}
   m_SizeDelta: {x: 1, y: 0.9556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1293091988
@@ -877,7 +877,6 @@ GameObject:
   - component: {fileID: 182378436109458471}
   - component: {fileID: 946320809}
   - component: {fileID: 1716859552088588862}
-  - component: {fileID: 7726147124532794231}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -990,28 +989,6 @@ MonoBehaviour:
   - {fileID: 36279326259207901}
   - {fileID: 7443286173712739274}
   - {fileID: 581014068325440984}
---- !u!195 &7726147124532794231
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7334631501480717700}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.00001
-  m_Speed: 0
-  m_Acceleration: 0
-  avoidancePriority: 0
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 0
-  m_AutoRepath: 0
-  m_Height: 0.00001
-  m_BaseOffset: 0
-  m_WalkableMask: 0
-  m_ObstacleAvoidanceType: 0
 --- !u!1 &7575500023560373705
 GameObject:
   m_ObjectHideFlags: 0
