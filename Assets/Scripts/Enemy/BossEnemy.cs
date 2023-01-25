@@ -25,11 +25,6 @@ public class BossEnemy : EnemyBase
         aiManager = FindObjectOfType<AIManager>();
     }
 
-    private void FixedUpdate()
-    {
-        Debug.Log("boss health: " + setHealth + " max health: " + maxHealth);
-    }
-
     protected override void MoveTowardsPlayer(Vector3 player)
     {
         if (agent == null) return;
