@@ -10,6 +10,7 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     public void Init()
     {
+        PlayerPrefs.SetInt("FirstUpgrade", 0);
         for (int i = 0; i < skills.Length; i++)
         {
             skills[i].Initialize();

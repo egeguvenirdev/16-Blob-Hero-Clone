@@ -122,6 +122,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void OnWin()
     {
         playerSkills.SetActive(false);
+        PlayerPrefs.SetInt("PlayerLevel", 1);
         StopMovement();
     }
 
@@ -129,6 +130,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         PlayerDied?.Invoke();
         playerSkills.SetActive(false);
+        PlayerPrefs.SetInt("PlayerLevel", 1);
         StopMovement();
     }
 
@@ -139,7 +141,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public int GetLevel()
     {
-        return PlayerPrefs.GetInt("PlayerLevel", 0);
+        return PlayerPrefs.GetInt("PlayerLevel", 1);
     }
 
     public Transform GetCharacterTransform()

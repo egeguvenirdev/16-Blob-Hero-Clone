@@ -33,6 +33,5 @@ public class UnitBase : MonoBehaviour
     private void ResHealth()
     {
         currentHealth = maxHealth;
-        Debug.Log("health: " + currentHealth);
     }
 }
