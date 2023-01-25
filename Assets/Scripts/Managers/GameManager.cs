@@ -34,8 +34,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (clearPlayerPrefs)
         {
-            PlayerPrefs.DeleteAll();
-            SetTotalMoney(addMoney);
+            //PlayerPrefs.DeleteAll();
+            //SetTotalMoney(addMoney);
+            SkillManager.Instance.DeInit();
         }
         uIManager = UIManager.Instance;
         enemyInstantiator = FindObjectOfType<EnemyInstantiator>();
