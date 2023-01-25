@@ -24,7 +24,7 @@ public class SlimeBurstSkill : SkillBase
     {
         PlayerPrefs.SetInt(_skillName, 0);
         PlayerPrefs.SetFloat(_oddSkillName, 0);
-        PlayerPrefs.SetFloat(_evenSkillName, 0);
+        PlayerPrefs.SetFloat(_evenSkillName, 1);
     }
 
     protected override void OddLevelUpgrade()

@@ -75,7 +75,7 @@ public class EnemyInstantiator : MonoBehaviour
         if (playerManager!=null)
         {
             int level = playerManager.GetLevel();
-            if (level % 1 == 0 && level != 0 && canSpawnBoss)
+            if (level % 2 == 0 && level != 0 && canSpawnBoss)
             {
                 canSpawnBoss = false;
                 CallRandomBoss();

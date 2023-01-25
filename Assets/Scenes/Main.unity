@@ -1761,7 +1761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2439711950884538189, guid: 6c743645454a09b46a8e2b42a6fa460c, type: 3}
       propertyPath: clearPlayerPrefs
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2439711950884538190, guid: 6c743645454a09b46a8e2b42a6fa460c, type: 3}
       propertyPath: m_Name

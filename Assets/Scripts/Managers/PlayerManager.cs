@@ -56,6 +56,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void Init()
     {
+        PlayerPrefs.SetInt("PlayerLevel", 1);
         playerLevel = PlayerPrefs.GetInt("PlayerLevel", 1);
         currentHealth = maxHealth;
         currentXP = 0;
@@ -122,7 +123,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void OnWin()
     {
         playerSkills.SetActive(false);
-        PlayerPrefs.SetInt("PlayerLevel", 1);
         StopMovement();
     }
 
@@ -130,7 +130,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         PlayerDied?.Invoke();
         playerSkills.SetActive(false);
-        PlayerPrefs.SetInt("PlayerLevel", 1);
         StopMovement();
     }
 
