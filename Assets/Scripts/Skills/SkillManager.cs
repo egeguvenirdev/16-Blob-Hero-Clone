@@ -15,6 +15,13 @@ public class SkillManager : MonoSingleton<SkillManager>
             skills[i].Initialize();
         }
     }
+    public void DeInit()
+    {
+        for (int i = 0; i < skills.Length; i++)
+        {
+            skills[i].DeInitialize();
+        }
+    }
 
     public void SelectRandomCards(List<CardData> cards)
     {

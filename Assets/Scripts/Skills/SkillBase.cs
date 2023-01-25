@@ -27,6 +27,7 @@ public abstract class SkillBase : MonoBehaviour
 
     public abstract void Initialize();
 
+    public abstract void DeInitialize();
 
     public void UpgradeButton()
     {

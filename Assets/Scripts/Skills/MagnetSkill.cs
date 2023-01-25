@@ -26,22 +26,29 @@ public class MagnetSkill : SkillBase
         }
     }
 
+    public override void DeInitialize()
+    {
+        PlayerPrefs.SetInt(_skillName, 0);
+        PlayerPrefs.SetFloat(_oddSkillName, 0.3f);
+        PlayerPrefs.SetFloat(_evenSkillName, 0.3f);
+    }
+
     protected override void OddLevelUpgrade()
     {
-        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 1) + _skillOddValue);
+        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 0.3f) + _skillOddValue);
         SetMagnetSize();
     }
 
     protected override void EvenLevelUpgrade()
     {
-        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 1) + _skillOddValue);
+        PlayerPrefs.SetFloat(_oddSkillName, PlayerPrefs.GetFloat(_oddSkillName, 0.3f) + _skillOddValue);
         SetMagnetSize();
     }
 
     private void SetMagnetSize()
     {
 
-        playerManager.SetColliderRadius(colliderRadius * PlayerPrefs.GetFloat(_oddSkillName, 1));
+        playerManager.SetColliderRadius(colliderRadius * PlayerPrefs.GetFloat(_oddSkillName, 0.3f));
     }
 
     //OLD MAGNET

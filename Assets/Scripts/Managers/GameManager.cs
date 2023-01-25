@@ -75,7 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void FinishGame(bool winCondition)
     {
-        //kill the managers
+        SkillManager.Instance.DeInit();
         GameOver?.Invoke(winCondition);
     }
 

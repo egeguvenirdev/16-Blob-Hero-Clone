@@ -24,6 +24,13 @@ public class TurningSlimeSkill : SkillBase
         }
     }
 
+    public override void DeInitialize()
+    {
+        PlayerPrefs.SetInt(_skillName, 0);
+        PlayerPrefs.SetFloat(_oddSkillName, 1);
+        PlayerPrefs.SetFloat(_evenSkillName, 1);
+    }
+
     private void Update()
     {
         if (_turningSlimeParent.activeSelf == true)
