@@ -62,16 +62,22 @@ public class MeleeEnemy : EnemyBase
         canMove = true;
     }
 
+    public override void TakeDamage(float hitAmount)
+    {
+        base.TakeDamage(hitAmount);
+        PlayParticle("EnemyHitParticle");
+    }
+
     protected override void Die()
     {
         ResEnemy();
-        PlayParticle();
+        PlayParticle("HitParticle");
         DropExpDiamond();   
         base.Die();
         gameObject.SetActive(false);
     }
 
-    private void PlayParticle()
+    private void PlayParticle(string particleName)
     {
         var particle = ObjectPooler.Instance.GetPooledObject("HitParticle");
         Vector3 particlePos = new Vector3(transform.position.x, 0.25f, transform.position.z);

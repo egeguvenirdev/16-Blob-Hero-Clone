@@ -73,9 +73,15 @@ public class BossEnemy : EnemyBase
         canMove = true;
     }
 
+    public override void TakeDamage(float hitAmount)
+    {
+        base.TakeDamage(hitAmount);
+        PlayParticle("BossHitParticle");
+    }
+
     protected override void Die()
     {
-        PlayParticle();
+        PlayParticle("HitParticle");
         OnBossDied();
         base.Die();
     }
@@ -86,9 +92,9 @@ public class BossEnemy : EnemyBase
         gameObject.SetActive(false);
     }
 
-    private void PlayParticle()
+    private void PlayParticle(string particleName)
     {
-        var particle = ObjectPooler.Instance.GetPooledObject("HitParticle");
+        var particle = ObjectPooler.Instance.GetPooledObject(particleName);
         Vector3 particlePos = new Vector3(transform.position.x, 0.25f, transform.position.z);
         particle.transform.position = particlePos;
         particle.transform.rotation = Quaternion.identity;

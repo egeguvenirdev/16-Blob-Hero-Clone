@@ -26,7 +26,6 @@ public class InstantiatedBurstSlime : MonoBehaviour
         if (other.CompareTag("Enemy") || other.CompareTag("Boss"))
         {
             GameManager.Haptic(0);
-            Debug.Log("Burst slime hit the enemy. Damage : " + damage);
             other.GetComponent<EnemyBase>().TakeDamage(damage);
         }
     }

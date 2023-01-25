@@ -12,6 +12,7 @@ public abstract class EnemyBase : UnitBase
     protected PlayerManager playerManager;
     protected bool canRun = false;
     protected bool isRunning = false;
+    protected bool isAlive = false;
 
     protected void Initialized()
     {
@@ -24,11 +25,13 @@ public abstract class EnemyBase : UnitBase
         Initialized();
         AIManager.ManagerUpdate += MoveTowardsPlayer;
         AIManager.PlayerDied += OnGameEnd;
+        isAlive = true;
     }
 
     protected virtual void OnDisable()
     {
         AIManager.ManagerUpdate -= MoveTowardsPlayer;
+        isAlive = false;
     }
 
     protected virtual void MoveTowardsPlayer(Vector3 player)
@@ -36,7 +39,7 @@ public abstract class EnemyBase : UnitBase
         //
     }
 
-    public void TakeDamage(float hitAmount)
+    public virtual void TakeDamage(float hitAmount)
     {
         setHealth = hitAmount;
     }
@@ -53,7 +56,7 @@ public abstract class EnemyBase : UnitBase
 
     private void OnPlayerWin()
     {
-        if (gameObject.activeSelf)
+        if (isAlive)
         {
             int randomClipNumber = Random.Range(0, dieClips.Length);
             _animancer.PlayAnimation(dieClips[randomClipNumber]);
@@ -63,7 +66,7 @@ public abstract class EnemyBase : UnitBase
 
     private void OnPlayerLose()
     {
-        if (gameObject.activeSelf)
+        if (isAlive)
         {
             _animancer.PlayAnimation("EnemyWin");
             agent.isStopped = true;

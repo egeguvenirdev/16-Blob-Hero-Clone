@@ -17,6 +17,9 @@ TagManager:
   - BurstSlime
   - GemParticle
   - Boss
+  - SkillHitParticle
+  - BossHitParticle
+  - EnemyHitParticle
   layers:
   - Default
   - TransparentFX
